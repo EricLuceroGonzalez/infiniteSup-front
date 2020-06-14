@@ -24,8 +24,8 @@ const NavBar = (props) => {
         expand="md"
         fixed="top"
         style={{
-          backgroundColor: "white",
-          boxShadow: "2px 1px 2px black",
+          backgroundColor: "rgba(0,0,0,0.1)",
+          // boxShadow: "2px 1px 2px black",
         }}
       >
         <NabLink
