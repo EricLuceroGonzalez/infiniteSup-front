@@ -30,9 +30,12 @@ const Landing = (props) => {
           // backgroundColor: "rgba(255,0,0,0.1)",
         }}
       >
-      <ShowCategories/>
-      <ShowBlog/>
-
+      <div style={{ margin: "120px auto" }}>
+          <ShowCategories />
+        </div>
+        <div style={{ margin: "120px auto" }}>
+          <ShowBlog />
+        </div>
       </div>
     </div>
   );
