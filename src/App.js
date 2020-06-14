@@ -14,6 +14,7 @@ import BlogEntry from "./shared/components/App/BlogEntry";
 function App() {
   return (
     <div className="App">
+    
       <Router>
         <NavBar />
         <Route exact path="/" component={Landing} />

@@ -38,7 +38,7 @@ const NavBar = (props) => {
             {" "}
             🚀
           </span>
-          Academo
+          INFINITE SUPPLIES logo
         </NabLink>
 
         <NavbarToggler onClick={toggle} />
@@ -49,7 +49,7 @@ const NavBar = (props) => {
               activeClassName="activeNavLink"
               to="/dashboard"
             >
-              Cursos
+
             </NabLink>
           </Nav>
           <React.Fragment>
