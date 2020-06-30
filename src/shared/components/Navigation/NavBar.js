@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink as NabLink } from "react-router-dom";
 import HoverControlledDropdown from "../../hooks/HoverControlledDropdown-hook";
+import "./Navbar.css";
 
 import {
   Collapse,
@@ -14,18 +15,27 @@ import {
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    console.log(isOpen);
+  }, [isOpen]);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const closeCollapsed = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    }
+    console.log(`isOpen: ${isOpen}`);
+  };
   return (
     <div className="mb-5 pb-2">
       <Navbar
         light
         expand="md"
         fixed="top"
+        className=" d-flex flex-row fontA"
         style={{
-          backgroundColor: "rgba(0,0,0,0.1)",
-          // boxShadow: "2px 1px 2px black",
+          backgroundColor: "rgba(110,110,110,0.1)",
         }}
       >
         <NabLink
@@ -38,121 +48,42 @@ const NavBar = (props) => {
             {" "}
             🚀
           </span>
-          INFINITE SUPPLIES logo
+          INFINITE SUPPLIES
         </NabLink>
 
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NabLink
-              className="navThing link-text"
+              className="navThing"
               activeClassName="activeNavLink"
               to="/dashboard"
-            >
-
-            </NabLink>
+            ></NabLink>
           </Nav>
           <React.Fragment>
-            <HoverControlledDropdown>
-              <DropdownToggle>Nosotros</DropdownToggle>
+            <div className="p-4 p-lg-1">
+              <NabLink
+                onClick={closeCollapsed}
+                className="navThing"
+                activeClassName="activeNavLink"
+                to="/nosotros"
+              >
+                Nosotros
+              </NabLink>
+            </div>
+            <HoverControlledDropdown className='fontA'>
+              <div className="p-4 p-lg-1">
+                <DropdownToggle
+                  activeClassName="activeNavLink"
+                  className="drop-nav navThing"
+                >
+                  Productos
+                </DropdownToggle>
+              </div>
               <DropdownMenu>
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/dashboard"
-                  >
-                    Mision/Vision
-                  </NabLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/dashboard"
-                  >
-                    Valores
-                  </NabLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </HoverControlledDropdown>
-            <HoverControlledDropdown>
-              <DropdownToggle>Contactenos</DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/telefono"
-                  >
-                    Telefono
-                  </NabLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/formulario"
-                  >
-                    Formulario de consultas
-                  </NabLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/ubicacion"
-                  >
-                    Ubicacion
-                  </NabLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </HoverControlledDropdown>
-
-            <HoverControlledDropdown>
-              <DropdownToggle>Blog</DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/blog1"
-                  >
-                    Blog 1
-                  </NabLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/blog2"
-                  >
-                    Blog 2
-                  </NabLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
-                    activeClassName="activeNavLink"
-                    to="/blog1"
-                  >
-                    Blog 3
-                  </NabLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </HoverControlledDropdown>
-
-            <HoverControlledDropdown>
-              <DropdownToggle>Productos</DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>
-                  <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
                     to="/productos/cocina"
                   >
@@ -162,9 +93,9 @@ const NavBar = (props) => {
                 <DropdownItem divider />
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
-                    to="/blog2"
+                    to="/productos/higiene"
                   >
                     Higiene Personal
                   </NabLink>
@@ -172,19 +103,19 @@ const NavBar = (props) => {
                 <DropdownItem divider />
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
-                    to="/blog1"
+                    to="/productos/lavanderia"
                   >
-                    Lavanderia
+                    Lavandería
                   </NabLink>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
-                    to="/blog1"
+                    to="/productos/pisos"
                   >
                     Pisos
                   </NabLink>
@@ -192,9 +123,9 @@ const NavBar = (props) => {
                 <DropdownItem divider />
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
-                    to="/blog1"
+                    to="/productos/industrial"
                   >
                     Industrial
                   </NabLink>
@@ -202,32 +133,35 @@ const NavBar = (props) => {
                 <DropdownItem divider />
                 <DropdownItem>
                   <NabLink
-                    className="navThing link-text"
+                    className="navThing"
                     activeClassName="activeNavLink"
-                    to="/blog1"
+                    to="/productos/insumos"
                   >
                     Insumos
                   </NabLink>
                 </DropdownItem>
               </DropdownMenu>
             </HoverControlledDropdown>
-
-            {/*
-                <NabLink
-              className="navThing link-text"
-              to={"/register"}
-              activeClassName="activeNavLink"
-            >
-              <span className="blogoutUser order-success p-1">registro</span>
-            </NabLink>
-            <NabLink
-              className="navThing link-text"
-              to={"/login"}
-              activeClassName="activeNavLink"
-            >
-              <span className="p-1">login </span>
-            </NabLink>
- */}
+            <div className="p-4 p-lg-1">
+              <NabLink
+                onClick={closeCollapsed}
+                activeClassName="activeNavLink"
+                className="navThing"
+                to="/contacto"
+              >
+                Contáctenos
+              </NabLink>
+            </div>
+            <div className="p-4 p-lg-1">
+              <NabLink
+                onClick={closeCollapsed}
+                className="navThing"
+                activeClassName="activeNavLink"
+                to="/blog"
+              >
+                Blog
+              </NabLink>
+            </div>
           </React.Fragment>
         </Collapse>
       </Navbar>

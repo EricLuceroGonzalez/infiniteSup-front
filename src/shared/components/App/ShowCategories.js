@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import "./Categories.css";
-import catA from "../../../media/prod-0.png";
-import catB from "../../../media/prod-1.png";
-import catC from "../../../media/prod-2.png";
-import catD from "../../../media/prod-3.png";
+import catA from "../../../media/prod-2.png";
+import catB from "../../../media/prod-3.png";
+import catC from "../../../media/prod-1.png";
+import catD from "../../../media/prod-0.png";
 import catE from "../../../media/prod-4.png";
 import catF from "../../../media/prod-5.png";
 import { useHistory } from "react-router-dom";
@@ -30,11 +30,11 @@ const ShowCategories = (props) => {
       // console.log(item.source);
       return (
         <div
-          className="card img-box img-hover-zoom"
+          className="card img-box img-hover-zoom dada col-12"
           key={k}
           // style={{ border: "1px solid red" }}
           onClick={() => {
-            history.push(`/products/${item.name}`);
+            history.push(`/productos/${item.name}`);
           }}
         >
           <img

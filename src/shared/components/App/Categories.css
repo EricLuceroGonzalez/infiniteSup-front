@@ -3,13 +3,13 @@
 }
 
 .img-text {
-  font-family: JuliusSansOne-Regular;
+  font-family: PlayfairDisplay-Regular;
   font-size: 0.9em;
 }
 
 /* [1] The container from https://w3bits.com/css-image-hover-zoom/*/
 .img-hover-zoom {
-  height: 220px; /* [1.1] Set it as per your need */
+  /* height: 320px; */
   overflow: hidden; /* [1.2] Hide the overflowing of child elements */
 }
 

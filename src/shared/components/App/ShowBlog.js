@@ -40,19 +40,19 @@ const blogEntry = [
 ];
 
 const ShowBlog = (props) => {
-  const [dateBlog, setDateBlog] = useState();
+  // const [dateBlog, setDateBlog] = useState();
 
   const [entry, setEntry] = useState(blogEntry);
   const history = useHistory();
 
   useEffect(() => {
     moment.locale("es");
-    console.log(blogEntry);
+    // console.log(blogEntry);
   }, []);
 
   const showBlogCars = () => {
     return entry.map((item, k) => {
-      console.log(item.title);
+      // console.log(item.title);
 
       return (
         <div className="card" onClick={()=>{history.push(`/blog/${item.id}`)}}>

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: rgba(100,100,100,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
+  min-height: 100vh;
 }
 
 @font-face {
@@ -13,6 +14,15 @@
   src: url(./media/fonts/Vidaloka-Regular.ttf);
 }
 
+@font-face {
+  font-family: PlayfairDisplay-Regular;
+  src: url(./media/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: PlayfairDisplay-Italic;
+  src: url(./media/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
 
 .App-logo {
   height: 40vmin;
@@ -47,4 +57,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.map-container {
+  border: 1px solid salmon;
+  height: 25rem;
+  width: 100%;
+}
+
+.fontA {
+  font-family: PlayfairDisplay-Regular;
+  font-weight: 900;
 }

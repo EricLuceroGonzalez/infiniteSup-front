@@ -1,26 +1,55 @@
 .navThing {
-    margin: 5px 8px;
-    font-family: monospace;
-    color: rgb(116, 35, 153);
-    /* border: 1px solid rgba(0, 0, 0, 0.2); */
-  }
-  
-  .link-text {
-    font-size: 0.75em;
-  }
-  
-  .activeNavLink {
-    color: rgba(116, 35, 153, 0.6);
-    border-bottom: 1px solid rgb(116, 35, 153);
-  }
-  
-  .user-text {
-      color: rgb(80,220,130);
-  }
-  
-  .exit-text {
-      color: rgb(36, 179, 86);
-      font-size: 0.65em;
-      cursor: pointer;
-  }
-  
+  background-color: rgba(0, 0, 0, 0);
+  padding: 2px 12px;
+  color: black;
+  border: none;
+  font-family: PlayfairDisplay-Regular;
+  font-weight: 900;
+  /* border: 1px solid salmon; */
+  /* flex-flow: row nowrap; */
+  /* display: inline-block; */
+}
+
+.navThing:hover {
+  color: inherit;
+}
+.drop-nav{
+  background-color: none;
+}
+
+.drop-nav:hover{
+  background-color: none; 
+}
+
+.activeNavLink {
+  /* color: rgba(8, 187, 62, 0.747); */
+  border-bottom: 1px solid;
+}
+
+.user-text {
+  color: rgb(80, 220, 130);
+}
+
+.exit-text {
+  color: rgb(36, 179, 86);
+  font-size: 0.65em;
+  cursor: pointer;
+}
+
+.dd-btn {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: PlayfairDisplay-Regular;
+  font-weight: 900;
+  color: black;
+}
+
+.nav-open {
+  background-color: rgba(116, 35, 153, 0.2);
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 30px 5px;
+}
+.nav-closed {
+  padding: '10px 5px';
+}

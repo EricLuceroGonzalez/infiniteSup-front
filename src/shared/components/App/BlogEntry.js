@@ -57,20 +57,23 @@ const BlogEntry = (props) => {
       if (item.id === endPoint) {
         return (
           <div
-            className="col-8 mr-auto ml-auto"
+            className="col-12 mr-auto ml-auto"
             style={{ fontFamily: "Vidaloka-Regular", margin: "120px auto" }}
           >
-            <div className="col-12 mr-auto ml-auto">
+            <div className="col-10 mr-auto ml-auto">
               <h2>{item.title}</h2>
               <p style={{ fontFamily: "monospace", color: "gray" }}>
                 {" "}
                 {moment(item.date).format("LL")}
               </p>
-              <div>
+              <div> 
                 <p>{item.resumen}</p>
               </div>
             </div>
-            <div className="col-12 text-left p-5">
+            <div
+              className="mr-auto ml-auto
+            col-12 col-md-10 col-lg-7 text-left p-5"
+            >
               <p>{item.text}</p>
             </div>
           </div>
@@ -79,10 +82,10 @@ const BlogEntry = (props) => {
     });
   };
   return (
-    <React.Fragment>
-      <h2>Blog</h2>
+    <div className="mt-3">
+      <h1>Blog</h1>
       <div>{getEntry()}</div>
-    </React.Fragment>
+    </div>
   );
 };
 

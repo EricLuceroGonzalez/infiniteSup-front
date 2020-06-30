@@ -1,4 +1,5 @@
 import React from "react";
+import ShowWindowDimensions from "../../hooks/ShowWindowDimensions-hook";
 
 const Footer = () => {
   return (
@@ -17,10 +18,7 @@ const Footer = () => {
         fontFamily: "monospace",
       }}
     >
-      creado para fines academicos por{" "}
-      <span className="foot">
-          Eric Lucero G.
-      </span>
+      <ShowWindowDimensions/>
     </div>
   );
 };

@@ -7,7 +7,6 @@ import bg3 from "../../../media/bg-3.jpg";
 import bg4 from "../../../media/bg-4.jpg";
 import bg5 from "../../../media/bg-5.jpg";
 
-import AllImages from "./AllImages";
 import ShowCategories from "./ShowCategories";
 import ShowBlog from "./ShowBlog";
 
