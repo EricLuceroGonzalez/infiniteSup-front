@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 const products = [
   { name: "Cocina", source: catA },
   { name: "Higiene Personal", source: catB },
-  { name: "Lavanderia", source: catC },
+  { name: "Lavandería", source: catC },
   { name: "Pisos", source: catD },
   { name: "Industrial", source: catE },
   { name: "Insumos", source: catF },
@@ -30,9 +30,8 @@ const ShowCategories = (props) => {
       // console.log(item.source);
       return (
         <div
-          className="card img-box img-hover-zoom dada col-12"
+          className="floatingBar img-box img-hover-zoom dada col-10 col-sm-4 col-md-2"
           key={k}
-          // style={{ border: "1px solid red" }}
           onClick={() => {
             history.push(`/productos/${item.name}`);
           }}
@@ -40,9 +39,9 @@ const ShowCategories = (props) => {
           <img
             className="card-img-top img-restr"
             src={item.source}
-            alt="Card  cap"
+            alt="Card cap"
           />
-          <h5 className="card-title img-text">{item.name}</h5>
+          <h4 className="card-title img-text">{item.name}</h4>
         </div>
       );
     });
@@ -50,7 +49,11 @@ const ShowCategories = (props) => {
 
   return (
     <React.Fragment>
-      <div className="mr-auto ml-auto card-group col-12">{renderCats()}</div>
+      <div className='floatingBar'>
+        <div className="row d-flex mr-auto ml-auto justify-content-around">
+          {renderCats()}
+        </div>
+      </div>
     </React.Fragment>
   );
 };

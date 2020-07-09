@@ -1,6 +1,14 @@
+.navDiv {
+  /* border: 1px solid red; */
+  background-color: white;
+  font-size: 0.85em;
+}
+.logoSize {
+  height: 80px;
+}
 .navThing {
   background-color: rgba(0, 0, 0, 0);
-  padding: 2px 12px;
+  padding: 0px 12px;
   color: black;
   border: none;
   font-family: PlayfairDisplay-Regular;
@@ -13,12 +21,12 @@
 .navThing:hover {
   color: inherit;
 }
-.drop-nav{
+.drop-nav {
   background-color: none;
 }
 
-.drop-nav:hover{
-  background-color: none; 
+.drop-nav:hover {
+  background-color: none;
 }
 
 .activeNavLink {
@@ -51,5 +59,5 @@
   padding: 30px 5px;
 }
 .nav-closed {
-  padding: '10px 5px';
+  padding: "10px 5px";
 }

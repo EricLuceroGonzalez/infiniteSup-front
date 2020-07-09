@@ -17,10 +17,9 @@ const Map = (props) => {
         zoom: zoom,
       });
 
-      // //   Render a marker --> create a new marker on the center :
+      //   Render a marker --> create a new marker on the center :
       new window.google.maps.Marker({ position: center, map: map });
     } else{
-      console.log('***********   NO FOOGLE   ***********');
       
     }
   }, [center, zoom]);

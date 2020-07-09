@@ -58,7 +58,6 @@ const BlogEntry = (props) => {
         return (
           <div
             className="col-12 mr-auto ml-auto"
-            style={{ fontFamily: "Vidaloka-Regular", margin: "120px auto" }}
           >
             <div className="col-10 mr-auto ml-auto">
               <h2>{item.title}</h2>

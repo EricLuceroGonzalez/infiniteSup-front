@@ -23,49 +23,94 @@
   font-family: PlayfairDisplay-Italic;
   src: url(./media/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App- logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0px;
+  padding: 0px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main {
+  margin-top: 120px;
+  margin-bottom: 20px;
+  height: auto;
+  /* margin: 0 auto -90px; footer height + space */
+  min-height: 100%;
+  padding: 0 0 80px; /* footer height + space */
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .map-container {
-  border: 1px solid salmon;
   height: 25rem;
   width: 100%;
 }
 
+.bordea {
+  border: 1px dashed red;
+}
 .fontA {
   font-family: PlayfairDisplay-Regular;
   font-weight: 900;
+}
+
+.theAqua {
+  color: #08cec6;
+}
+.theLightBlue {
+  color: #4c91de;
+}
+
+.theLightBlue-b {
+  color: #06d6a2;
+}
+.thePurple {
+  color: #0411a3;
+}
+.theLightPurple {
+  color: #7070eb;
+}
+/* Colors */
+
+/* 1 - aqua */
+/* HEX: #08cec6 */
+/* rgb(8, 206, 198) */
+
+/* 2 - light blue */
+/* HEX: #4c91de */
+/* rgb(76, 145, 222) */
+
+/* 3 - purple */
+/* HEX: #0411a3 */
+/* rgb(4, 17, 163) */
+
+/* 4 - light purple */
+/* HEX: #7070eb */
+/* rgb(112, 112, 235) */
+
+.Infinite-gradient {
+  background: rgb(151, 57, 241);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(151, 57, 241, 0.9592274678111588) 11%,
+    rgba(4, 17, 163, 0.8283261802575107) 36%,
+    rgba(76, 156, 222, 0.9592274678111588) 65%,
+    rgba(8, 206, 198, 1) 97%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(151, 57, 241, 0.9592274678111588) 11%,
+    rgba(4, 17, 163, 0.8283261802575107) 36%,
+    rgba(76, 156, 222, 0.9592274678111588) 65%,
+    rgba(8, 206, 198, 1) 97%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(151, 57, 241, 0.9592274678111588) 11%,
+    rgba(4, 17, 163, 0.8283261802575107) 36%,
+    rgba(76, 156, 222, 0.9592274678111588) 65%,
+    rgba(8, 206, 198, 1) 97%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9739f1",endColorstr="#08cec6",GradientType=1);
 }

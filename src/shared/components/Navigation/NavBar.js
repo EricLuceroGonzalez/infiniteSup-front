@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink as NabLink } from "react-router-dom";
+
+import logo from "../../../media/logo_sm_cut.png";
 import HoverControlledDropdown from "../../hooks/HoverControlledDropdown-hook";
 import "./Navbar.css";
 
@@ -28,15 +30,12 @@ const NavBar = (props) => {
     console.log(`isOpen: ${isOpen}`);
   };
   return (
-    <div className="mb-5 pb-2">
+    <div>
       <Navbar
         light
         expand="md"
         fixed="top"
-        className=" d-flex flex-row fontA"
-        style={{
-          backgroundColor: "rgba(110,110,110,0.1)",
-        }}
+        className="d-flex flex-row fontA navDiv"
       >
         <NabLink
           className="navThing"
@@ -44,10 +43,9 @@ const NavBar = (props) => {
           to={"/"}
           activeClassName="activeNavLink"
         >
-          <span role="img" aria-label="star-dust">
-            {" "}
-            🚀
-          </span>
+          <img 
+          className='logoSize'
+          src={logo} alt="infinite supplies logo"></img>
           INFINITE SUPPLIES
         </NabLink>
 
@@ -71,11 +69,11 @@ const NavBar = (props) => {
                 Nosotros
               </NabLink>
             </div>
-            <HoverControlledDropdown className='fontA'>
+            <HoverControlledDropdown className="fontA">
               <div className="p-4 p-lg-1">
                 <DropdownToggle
                   activeClassName="activeNavLink"
-                  className="drop-nav navThing"
+                  className="drop-nav navThing navDiv"
                 >
                   Productos
                 </DropdownToggle>

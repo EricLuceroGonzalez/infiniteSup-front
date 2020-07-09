@@ -1,10 +1,26 @@
+.floatingBar {
+  /* border: 1px solid red; */
+  /* position: absolute; */
+  top: 10%;
+  /* z-index: 100; */
+}
+
+.bgIcon {
+  background-color: rgba(111, 111, 111, 0.3);
+}
+
 .img-box {
   border: none;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background-color: rgba(111, 111, 111, 0.6);
+  /* border: 1px solid red; */
+  margin: 3px auto;
 }
 
 .img-text {
   font-family: PlayfairDisplay-Regular;
-  font-size: 0.9em;
+  font-size: 0.75em;
+  text-transform: uppercase;
 }
 
 /* [1] The container from https://w3bits.com/css-image-hover-zoom/*/
