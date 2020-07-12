@@ -10,6 +10,7 @@ import bg5 from "../../../media/bg-5.jpg";
 import ShowCategories from "./ShowCategories";
 import ShowBlog from "./ShowBlog";
 import "./Home.css";
+import ImageBar from "../UIElements/ImageBar";
 
 const Landing = (props) => {
   return (
@@ -24,6 +25,9 @@ const Landing = (props) => {
       <div style={{ height: "87vh" }}>
         <BackgroundSlideshow images={[bg0, bg1, bg2, bg3, bg4, bg5]} />
       </div>
+      <div>
+      </div>
+      <ImageBar/>
       <div className="flex-container">
         <ShowCategories />
         <ShowBlog />
