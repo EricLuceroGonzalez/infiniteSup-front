@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 import "./Categories.css";
-import catA from "../../../media/prod-2.png";
-import catB from "../../../media/prod-3.png";
-import catC from "../../../media/prod-1.png";
-import catD from "../../../media/prod-0.png";
-import catE from "../../../media/prod-4.png";
-import catF from "../../../media/prod-5.png";
+import catA from "../../../media/icon-dishes.png";
+import catB from "../../../media/icon-hands.png";
+import catC from "../../../media/icon-washmachine.png";
+import catD from "../../../media/icon-floor.png";
+import catE from "../../../media/icon-industry.png";
+import catF from "../../../media/icon-supply.png";
 import { useHistory } from "react-router-dom";
 
 const products = [
   { name: "Cocina", source: catA },
   { name: "Higiene Personal", source: catB },
-  { name: "Lavandería", source: catC },
-  { name: "Pisos", source: catD },
+  { name: "Detergentes", source: catC },
+  { name: "Limpiadores Multiusos", source: catD },
   { name: "Industrial", source: catE },
-  { name: "Insumos", source: catF },
+  { name: "Envases e Insumos", source: catF },
 ];
 const ShowCategories = (props) => {
   const [cats, setCats] = useState(products);
@@ -30,7 +30,7 @@ const ShowCategories = (props) => {
       // console.log(item.source);
       return (
         <div
-          className="floatingBar img-box img-hover-zoom dada col-10 col-sm-4 col-md-2"
+          className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
           key={k}
           onClick={() => {
             history.push(`/productos/${item.name}`);
@@ -49,10 +49,8 @@ const ShowCategories = (props) => {
 
   return (
     <React.Fragment>
-      <div className='floatingBar'>
-        <div className="row d-flex mr-auto ml-auto justify-content-around">
+      <div className='row d-flex col-10 mr-auto ml-auto justify-content-around m-5'>
           {renderCats()}
-        </div>
       </div>
     </React.Fragment>
   );

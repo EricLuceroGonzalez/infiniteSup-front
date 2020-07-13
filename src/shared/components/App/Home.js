@@ -1,11 +1,11 @@
 import React from "react";
 import BackgroundSlideshow from "react-background-slideshow";
-import bg0 from "../../../media/bg-0.jpg";
-import bg1 from "../../../media/bg-1.jpg";
-import bg2 from "../../../media/bg-2.jpg";
-import bg3 from "../../../media/bg-3.jpg";
-import bg4 from "../../../media/bg-4.jpg";
-import bg5 from "../../../media/bg-5.jpg";
+import bg0 from "../../../media/bg/bg-0.jpg";
+import bg1 from "../../../media/bg/bg-1.jpg";
+import bg2 from "../../../media/bg/bg-2.jpg";
+import bg3 from "../../../media/bg/bg-3.jpg";
+import bg4 from "../../../media/bg/bg-4.jpg";
+import bg5 from "../../../media/bg/bg-5.jpg";
 
 import ShowCategories from "./ShowCategories";
 import ShowBlog from "./ShowBlog";

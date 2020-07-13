@@ -1,11 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Landing from "./shared/components/App/Home";
 import NavBar from "./shared/components/Navigation/NavBar";
 import "./App.css";
+import "./fonts.css";
 import Footer from "./shared/components/UIElements/Footer";
 // import ShowBlog from "./shared/components/App/ShowBlog";
 // import ShowCategories from "./shared/components/App/ShowCategories";
@@ -19,13 +20,15 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <main className='main'>
+        <main className="main">
           <Route exact path="/" component={Landing} />
           <Route path="/blog/:id" component={BlogEntry} />
           <Route path="/nosotros" component={AboutUs} />
           <Route path="/contacto" component={ContactUs} />
         </main>
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
       </Router>
     </div>
   );

@@ -11,7 +11,8 @@
   padding: 0px 12px;
   color: black;
   border: none;
-  font-family: PlayfairDisplay-Regular;
+  /* font-family: PlayfairDisplay-Regular; */
+  font-family: Montserrat-Bold;
   font-weight: 900;
   /* border: 1px solid salmon; */
   /* flex-flow: row nowrap; */

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import banner from '../../../media/banner_a_1600 _300.png'
+import banner from '../../../media/banner/1600x300-1.jpg'
 
 const ImageBar = () => {
   return (

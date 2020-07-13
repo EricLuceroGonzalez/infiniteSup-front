@@ -37,15 +37,19 @@ const NavBar = (props) => {
         fixed="top"
         className="d-flex flex-row fontA navDiv"
       >
+        <NabLink className="navThing" exact to={"/"}>
+          <img
+            className="logoSize"
+            src={logo}
+            alt="infinite supplies logo"
+          ></img>
+        </NabLink>
         <NabLink
           className="navThing"
           exact
           to={"/"}
           activeClassName="activeNavLink"
         >
-          <img 
-          className='logoSize'
-          src={logo} alt="infinite supplies logo"></img>
           INFINITE SUPPLIES
         </NabLink>
 

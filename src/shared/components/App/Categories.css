@@ -6,21 +6,23 @@
 }
 
 .bgIcon {
-  background-color: rgba(111, 111, 111, 0.3);
+  background-color: rgba(111, 111, 111, 0.93);
 }
 
 .img-box {
   border: none;
-  border: 1px solid rgba(255, 255, 255, 0);
-  background-color: rgba(111, 111, 111, 0.6);
+  /* border: 1px solid rgba(255, 5, 5, 0.3); */
+  /* background-color: rgba(111, 111, 111, 0.2); */
   /* border: 1px solid red; */
-  margin: 3px auto;
+  padding: 20px;
 }
 
 .img-text {
-  font-family: PlayfairDisplay-Regular;
-  font-size: 0.75em;
+  font-family: Montserrat-Bold;
+  font-size: 0.95em;
   text-transform: uppercase;
+  margin: 12px auto;
+  color: #0411a3;
 }
 
 /* [1] The container from https://w3bits.com/css-image-hover-zoom/*/
@@ -31,10 +33,10 @@
 
 /* [2] Transition property for smooth transformation of images */
 .img-hover-zoom img {
-  transition: transform 0.5s ease;
+  transition: transform 0.35s ease;
 }
 
 /* [3] Finally, transforming the image when container gets hovered */
 .img-hover-zoom:hover img {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
