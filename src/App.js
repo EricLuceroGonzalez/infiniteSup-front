@@ -13,13 +13,14 @@ import Footer from "./shared/components/UIElements/Footer";
 import BlogEntry from "./shared/components/App/BlogEntry";
 import AboutUs from "./shared/components/App/AboutUs";
 import ContactUs from "./shared/components/App/ContactUs";
+import Navigation from "./shared/components/Navigation/Navigation";
 // import NavLinks from "./shared/components/Navigation/NavLinks";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <Navigation/>
         <main className="main">
           <Route exact path="/" component={Landing} />
           <Route path="/blog/:id" component={BlogEntry} />

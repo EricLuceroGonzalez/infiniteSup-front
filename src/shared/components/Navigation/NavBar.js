@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink as NabLink } from "react-router-dom";
 
-import logo from "../../../media/logo_sm_cut.png";
+import logo from "../../../media/infinitelogo.png";
 import HoverControlledDropdown from "../../hooks/HoverControlledDropdown-hook";
 import "./Navbar.css";
 
@@ -44,15 +44,6 @@ const NavBar = (props) => {
             alt="infinite supplies logo"
           ></img>
         </NabLink>
-        <NabLink
-          className="navThing"
-          exact
-          to={"/"}
-          activeClassName="activeNavLink"
-        >
-          INFINITE SUPPLIES
-        </NabLink>
-
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
