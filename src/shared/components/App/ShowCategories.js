@@ -8,6 +8,7 @@ import catD from "../../../media/icon-floor.png";
 import catE from "../../../media/icon-industry.png";
 import catF from "../../../media/icon-supply.png";
 import { useHistory } from "react-router-dom";
+import CatModal from "../UIElements/CatModal";
 
 const products = [
   { name: "Cocina", source: catA },
@@ -19,6 +20,7 @@ const products = [
 ];
 const ShowCategories = (props) => {
   const [cats, setCats] = useState(products);
+  const [catModal, setCatModal] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -29,28 +31,33 @@ const ShowCategories = (props) => {
     return cats.map((item, k) => {
       // console.log(item.source);
       return (
-        <div
-          className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
-          key={k}
-          onClick={() => {
-            history.push(`/productos/${item.name}`);
-          }}
-        >
-          <img
-            className="card-img-top img-restr"
-            src={item.source}
-            alt="Card cap"
-          />
-          <h4 className="card-title img-text">{item.name}</h4>
-        </div>
+          <div
+            className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
+            // history.push(`/productos/${item.name}`)
+            key={k}
+            onClick={() => {
+              console.log(catModal);
+              console.log(`item: ${item.name}`);
+              
+              // setCatModal(!catModal);
+            }}
+          >
+          <CatModal show={catModal} message={'Hello world'}/>
+            <img
+              className="card-img-top img-restr"
+              src={item.source}
+              alt="Card cap"
+            />
+            <h4 className="card-title img-text">{item.name}</h4>
+          </div>
       );
     });
   };
 
   return (
     <React.Fragment>
-      <div className='row d-flex col-10 mr-auto ml-auto justify-content-around m-5'>
-          {renderCats()}
+      <div className="row d-flex col-10 mr-auto ml-auto justify-content-around m-5">
+        {renderCats()}
       </div>
     </React.Fragment>
   );

@@ -1,45 +1,60 @@
 .main-navigation__menu-btn {
-    width: 3rem;
-    height: 3rem;
-    background: transparent;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-right: 2rem;
-    cursor: pointer;
-  }
-  
-  .main-navigation__menu-btn span {
-    display: block;
-    width: 3rem;
-    height: 2.5px;
-    background: #0411a3;
-  }
-  
-  .main-navigation__title {
-    color: black;
-  }
-  
-  .main-navigation__title a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .main-navigation__header-nav {
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.main-navigation__menu-btn span {
+  display: block;
+  width: 2rem;
+  height: 2.5px;
+}
+
+.logoSize{
+height: 55px;
+}
+
+.spanUp {
+  background: #06d6a2;
+}
+
+.spanMid {
+  background: #08cec6;
+}
+
+.spanDow {
+  background: #7070eb;
+}
+
+.main-navigation__title {
+  color: black;
+}
+
+.main-navigation__title a {
+  text-decoration: none;
+  color: white;
+}
+
+.main-navigation__header-nav {
+  display: none;
+}
+
+.main-navigation__drawer-nav {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .main-navigation__menu-btn {
     display: none;
   }
-  
-  .main-navigation__drawer-nav {
-    height: 100%;
+
+  .main-navigation__header-nav {
+    display: block;
   }
-  
-  @media (min-width: 768px) {
-    .main-navigation__menu-btn {
-      display: none;
-    }
-  
-    .main-navigation__header-nav {
-      display: block;
-    }
-  }
+}
