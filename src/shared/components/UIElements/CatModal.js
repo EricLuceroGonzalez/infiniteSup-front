@@ -21,7 +21,18 @@ const CatModal = (props) => {
   return (
     <Modal
       onCancel={props.onClear}
-      header={props.title}
+      header={
+        props.logo ? (
+          <div className="row d-flex">
+            <div className="col-2">
+              <img className="col-12" src={props.logo} alt="Card cap" />
+            </div>
+            <div className="col-8">{props.title}</div>
+          </div>
+        ) : (
+          ""
+        )
+      }
       show={props.show}
       footer={
         <div>
@@ -35,6 +46,9 @@ const CatModal = (props) => {
     >
       <div>
         <h3>{props.prodName}</h3>
+        <div className="justify-content-end">
+          <div>{props.items} productos</div>
+        </div>
         <div className="col-12">
           <img
             src="https://dummyimage.com/200x80/850285/82ad00&text=Imagen+del+producto"

@@ -23,6 +23,8 @@ const CategoryItem = (props) => {
         show={showModal}
         title={props.category}
         prodName={props.name}
+        items={props.items}
+        logo={props.logo}
         description={props.description}
         props={props.pros}
         sizes={props.sizes}

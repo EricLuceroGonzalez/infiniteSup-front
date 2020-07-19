@@ -7,6 +7,14 @@ import catC from "../../../media/icon-washmachine.png";
 import catD from "../../../media/icon-floor.png";
 import catE from "../../../media/icon-industry.png";
 import catF from "../../../media/icon-supply.png";
+import fgCatA from "../../../media/fg-icon-dishes.png";
+import fgCatB from "../../../media/fg-icon-hands.png";
+import fgCatC from "../../../media/fg-icon-washmachine.png";
+import fgCatD from "../../../media/fg-icon-floor.png";
+import fgCatE from "../../../media/fg-icon-industry.png";
+import fgCatF from "../../../media/fg-icon-supply.png";
+
+
 import { useHistory } from "react-router-dom";
 import CatModal from "../UIElements/CatModal";
 import CategoryItem from "./CategoryItem";
@@ -15,6 +23,7 @@ const products = [
   {
     category: "Cocina",
     source: catA,
+    logo: fgCatA,
     items: [
       {
         name: "Jabón Líquido para fregar",
@@ -35,6 +44,7 @@ const products = [
   {
     category: "Jabones Líquidos",
     source: catB,
+    logo: fgCatB,
     items: [
       {
         name: "Jabón Líquido para manos",
@@ -69,6 +79,7 @@ const products = [
   {
     category: "Detergentes",
     source: catC,
+    logo: fgCatC,
     items: [
       {
         name: "fuerteX",
@@ -109,6 +120,7 @@ const products = [
   {
     category: "Limpiadores Multiusos",
     source: catD,
+    logo: fgCatD,
     items: [
       {
         name: "Limpiadores Multiusos",
@@ -138,6 +150,7 @@ const products = [
   {
     category: "Industrial",
     source: catE,
+    logo: fgCatE,
     items: [
       {
         name: "Desengrasante Multiusos Industrial",
@@ -168,6 +181,7 @@ const products = [
   {
     category: "Envases e Insumos",
     source: catF,
+    logo: fgCatF,
     items: [
       { name: "GALONES BLANCOS", description: "", sizes: "" },
       { name: "GALONES NATURALES", description: "" },
@@ -201,6 +215,8 @@ const ShowCategories = (props) => {
         <CategoryItem
           key={k}
           category={item.category}
+          logo={item.logo}
+          items={item.items.length}
           imgsource={item.source}
           name={item.items[0].name}
           description={item.items[0].description}
