@@ -7,17 +7,19 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0px;
   padding: 0px;
 }
+
 .main {
-  margin-top: 120px;
+  margin-top: 10px;
   margin-bottom: 20px;
   height: auto;
-  /* margin: 0 auto -90px; footer height + space */
-  min-height: 100%;
-  padding: 0 0 80px; /* footer height + space */
+  min-height: 90%;
+  min-width: 100%;
+  padding: 0 0 80px;
   box-sizing: border-box;
   overflow: auto;
 }

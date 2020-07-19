@@ -58,6 +58,7 @@ const ShowBlog = (props) => {
 
       return (
         <div
+        key={k}
           className="card col-12"
           onClick={() => {
             history.push(`/blog/${item.id}`);
