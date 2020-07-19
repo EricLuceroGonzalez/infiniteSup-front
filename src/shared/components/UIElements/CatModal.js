@@ -37,29 +37,28 @@ const CatModal = (props) => {
         <h3>{props.prodName}</h3>
         <div className="col-12">
           <img
-            src="https://dummyimage.com/120x90/850285/82ad00&text=Imagen+del+producto"
+            src="https://dummyimage.com/200x80/850285/82ad00&text=Imagen+del+producto"
             alt="product illustration"
           ></img>
         </div>
         {props.description.length > 1 ? (
-          <ul>
+          <ul style={{ fontSize: "0.7em" }}>
             {" "}
             <li>{props.description[0]}</li>
             <li>{props.description[1]}</li>
           </ul>
         ) : (
-          <p>{props.description[0]}</p>
+          <p style={{ fontSize: "0.7em" }}>{props.description[0]}</p>
         )}
         <div>
-          Tamaños:
+          {props.sizes ? "Tamaños:" : ""}
           {props.sizes.length > 2 ? (
-            <ul>
-              {" "}
-              <li>{props.sizes[0]}</li>
-              <li>{props.sizes[1]}</li>
-              <li>{props.sizes[2]}</li>
-              <li>{props.sizes[3]}</li>
-            </ul>
+            <div className="row d-flex">
+              <div className="col-6">{props.sizes[0]}</div>
+              <div className="col-6">{props.sizes[1]}</div>
+              <div className="col-6">{props.sizes[2]}</div>
+              <div className="col-6">{props.sizes[3]}</div>
+            </div>
           ) : (
             <p>{props.sizes[0]}</p>
           )}
