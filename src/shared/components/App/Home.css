@@ -1,6 +1,13 @@
 .flex-container {
   flex-direction: column;
 }
+
+.category{
+  color: #7070eb;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-family: Montserrat-Bold;
+}
 .imageBox {
   margin-top: 55px;
   min-width: 100%;

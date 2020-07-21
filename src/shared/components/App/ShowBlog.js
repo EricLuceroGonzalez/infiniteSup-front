@@ -58,8 +58,8 @@ const ShowBlog = (props) => {
 
       return (
         <div
-        key={k}
-          className="card col-12"
+          key={k}
+          className="mt-5 card col-12 col-md-3"
           onClick={() => {
             history.push(`/blog/${item.id}`);
           }}
@@ -81,7 +81,9 @@ const ShowBlog = (props) => {
 
   return (
     <React.Fragment>
-      <div className="mr-auto ml-auto card-group col-11">{showBlogCars()}</div>
+      <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
+        {showBlogCars()}
+      </div>
     </React.Fragment>
   );
 };

@@ -1,29 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { render } from "@testing-library/react";
+import CategoryItem from "../App/CategoryItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faHome,
+  faIndustry,
+  faTree,
+} from "@fortawesome/free-solid-svg-icons";
 
-import "./Categories.css";
-import catA from "../../../media/icon-dishes.png";
-import catB from "../../../media/icon-hands.png";
-import catC from "../../../media/icon-washmachine.png";
-import catD from "../../../media/icon-floor.png";
-import catE from "../../../media/icon-industry.png";
-import catF from "../../../media/icon-supply.png";
-import fgCatA from "../../../media/fg-icon-dishes.png";
-import fgCatB from "../../../media/fg-icon-hands.png";
-import fgCatC from "../../../media/fg-icon-washmachine.png";
-import fgCatD from "../../../media/fg-icon-floor.png";
-import fgCatE from "../../../media/fg-icon-industry.png";
-import fgCatF from "../../../media/fg-icon-supply.png";
-
-
-import { useHistory } from "react-router-dom";
-import CatModal from "../UIElements/CatModal";
-import CategoryItem from "./CategoryItem";
+import "./ModalCatalog.css";
+import Button from "./Button";
 
 const products = [
   {
     category: "Cocina",
-    source: catA,
-    logo: fgCatA,
+
     items: [
       {
         name: "Jabón Líquido para fregar",
@@ -38,13 +31,14 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: true,
         flavors: ["Limón"],
+        domestic: true,
+        industry: false,
       },
     ],
   },
   {
     category: "Jabones Líquidos",
-    source: catB,
-    logo: fgCatB,
+
     items: [
       {
         name: "Jabón Líquido para manos",
@@ -59,6 +53,8 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: true,
         flavors: ["Almendra"],
+        domestic: true,
+        industry: true,
       },
       {
         name: "Suavizante de tela",
@@ -73,13 +69,14 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: true,
         flavors: ["Almendra"],
+        domestic: true,
+        industry: false,
       },
     ],
   },
   {
     category: "Detergentes",
-    source: catC,
-    logo: fgCatC,
+
     items: [
       {
         name: "fuerteX",
@@ -96,9 +93,11 @@ const products = [
         ],
         sizes: ["22LBS", "30LBS", "55LBS"],
         fragance: false,
+        domestic: true,
+        industry: true,
       },
       {
-        name: "Detergente en polvo (Lavanda, Floral, Limón",
+        name: "Detergente en polvo (Lavanda, Floral, Limón)",
         description: [
           "Detergente con fragancia a: LAVANDA, FLORAL Y LIMÓN.",
           "Este producto es rendidor, de fácil disolución.",
@@ -113,14 +112,15 @@ const products = [
         ],
         sizes: ["200gr", "500gr", "1,000gr", "10kg"],
         fragance: true,
+        domestic: true,
+        industry: false,
         flavors: ["Lavanda", "Floral", "Limón"],
       },
     ],
   },
   {
     category: "Limpiadores Multiusos",
-    source: catD,
-    logo: fgCatD,
+
     items: [
       {
         name: "Limpiadores Multiusos",
@@ -133,6 +133,8 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: true,
         flavors: ["FLORES TROPICALES", "LAVANDA", "BAMBÚ", "MANZANA - KIWI"],
+        domestic: true,
+        industry: true,
       },
       {
         name: "Desengrasante Multiusos",
@@ -144,13 +146,14 @@ const products = [
         pros: ["Ideal para uso doméstico y cualquier tipo de industria."],
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
+        domestic: true,
+        industry: true,
       },
     ],
   },
   {
     category: "Industrial",
-    source: catE,
-    logo: fgCatE,
+
     items: [
       {
         name: "Desengrasante Multiusos Industrial",
@@ -164,6 +167,8 @@ const products = [
         ],
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
+        domestic: false,
+        industry: true,
       },
       {
         name: "Limpiavidrios",
@@ -175,13 +180,14 @@ const products = [
         pros: ["Cuenta con la presentación domestica e industrial."],
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
+        domestic: true,
+        industry: true,
       },
     ],
   },
   {
     category: "Envases e Insumos",
-    source: catF,
-    logo: fgCatF,
+
     items: [
       { name: "GALONES BLANCOS", description: "", sizes: "" },
       { name: "GALONES NATURALES", description: "" },
@@ -200,41 +206,117 @@ const products = [
     ],
   },
 ];
-const ShowCategories = (props) => {
-  const [cats, setCats] = useState(products);
-  const history = useHistory();
+
+const ModalCatalog = (props) => {
+  const [categoryItems, setCategoryItems] = useState([]);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    console.log(products);
-  }, []);
+    products.map((item, k) => {
+      if (item.category === props.category) {
+        setCategoryItems(item.items);
 
-  const renderCats = () => {
-    return cats.map((item, k) => {
-      // console.log(item.source);
-      return (
-        <CategoryItem
-          key={k}
-          category={item.category}
-          logo={item.logo}
-          items={item.items.length}
-          imgsource={item.source}
-          pros={item.items[0].pros}
-          name={item.items[0].name}
-          description={item.items[0].description}
-          sizes={item.items[0].sizes}
-          frag={item.items[0].fragance}
-        />
-      );
+        return item.items;
+      }
     });
-  };
+    console.log(categoryItems);
+    console.log(`categoryItems.length: ${categoryItems.length}`);
+    console.log(`current: ${current}`);
+  }, [categoryItems, products, current, props]);
 
+  const renderCategories = () => {};
+
+  const renderProdacts = () => {
+    if (categoryItems[current]) {
+      console.log(typeof categoryItems);
+      console.log(categoryItems[current]);
+      return (
+        <div>
+          <h6>{categoryItems[current].name}</h6>
+          <div className="row d-flex catalogList">
+            <div className="col-12 col-sm-4">
+              <img
+                src="https://dummyimage.com/200x80/850285/82ad00&text=Imagen+del+producto"
+                alt="product illustration"
+              ></img>
+            </div>
+            <div className="col-12 col-sm-12 bordea">
+            <div>Descripcion</div>
+                <ol>
+                  {categoryItems[current].description.map((item, i) => {
+                    return <li key={i}>{item}</li>;
+                  })}
+                </ol>
+                <div>Ventajas</div>
+                <ol>
+                  {categoryItems[current].pros.map((item, i) => {
+                    return <li key={i}>{item}</li>;
+                  })}
+                </ol>
+            </div>
+          </div>
+          <div className="d-flex">
+            <div
+              className={`m-3  ${
+                categoryItems[current].fragance ? "available" : "NotAvailable"
+              }`}
+            >
+              <FontAwesomeIcon icon={faTree} />
+              {categoryItems[current].fragance ? (
+                <p className="smallWords">con fragancia</p>
+              ) : (
+                <p className="smallWords">sin fragancia</p>
+              )}
+            </div>
+            <div
+              className={`m-3 ${
+                categoryItems[current].domestic ? "available" : "NotAvailable"
+              }`}
+            >
+              <FontAwesomeIcon icon={faHome} />
+              <p className="smallWords">uso domestico</p>
+            </div>
+            <div
+              className={`m-3 ${
+                categoryItems[current].industry ? "available" : "NotAvailable"
+              }`}
+            >
+              <FontAwesomeIcon icon={faIndustry} />
+              <p className="smallWords">uso industrial</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
   return (
-    <React.Fragment>
-      <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
-        {renderCats()}
-      </div>
-    </React.Fragment>
+    <div>
+      {renderProdacts()}
+
+      {categoryItems.length > 1 ? (
+        <div>
+          <Button
+            disabled={current < 1 ? true : false}
+            onClick={() => setCurrent(current - 1)}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
+          <Button
+            disabled={current < categoryItems.length - 1 ? false : true}
+            onClick={() =>
+              setCurrent(() => {
+                setCurrent(current + 1);
+              })
+            }
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+          </Button>
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
   );
 };
 
-export default ShowCategories;
+export default ModalCatalog;

@@ -1,41 +1,40 @@
 .mymodal {
   z-index: 1000;
   position: fixed;
-  top: 5vh;
-  left: 10%;
-  max-height: 90%;
+  /* top: 70px; */
+  left: 5%;
+  margin: 5% auto;
+  max-height: 85%;
+  max-width: 85%;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
   font-family: Montserrat-SemiBold;
+  overflow-y: auto;
 }
 
 .modal__header {
   width: 100%;
-  padding: 1rem 0.5rem;
-  background: #06d6a2;
+  padding: 1rem 0.25rem;
+  background: #0411a3;
   color: white;
 }
-
-.modal__header h2 {
-  margin: 0.5rem;
-}
-
 .modal__content {
-  padding: 1rem 0.5rem;
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
 }
-
+/* 
 .modal__footer {
   padding: 1rem 0.5rem;
 }
 
 @media (min-width: 768px) {
   .modal {
-    left: calc(50% - 20rem);
+    left: calc(50% - 5rem);
     width: 40rem;
   }
 }
-
+*/
 .modal-enter {
   transform: translateY(-10rem);
   opacity: 0;

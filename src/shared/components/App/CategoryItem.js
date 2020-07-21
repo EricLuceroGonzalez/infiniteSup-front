@@ -10,29 +10,33 @@ const CategoryItem = (props) => {
     setShowModal(false);
   };
 
+  const openCloseModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <div
       className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
-      onClick={() => {
-        setShowModal(!showModal);
-        console.log(props.category);
-        console.log(props.description);
-      }}
     >
       <CatModal
         show={showModal}
+        closeModal={() => openCloseModal()}
         title={props.category}
         prodName={props.name}
         items={props.items}
         logo={props.logo}
         description={props.description}
-        props={props.pros}
+        pros={props.pros}
         sizes={props.sizes}
         fragance={props.frag}
         message={props.category}
         onClear={errorHandler}
       />
       <img
+      onClick={() => {
+        setShowModal(!showModal);
+      }}
+
         className="card-img-top img-restr"
         src={props.imgsource}
         alt="Card cap"
