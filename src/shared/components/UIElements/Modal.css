@@ -6,6 +6,7 @@
   margin: 5% auto;
   max-height: 85%;
   max-width: 85%;
+  min-width: 65%;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
@@ -15,12 +16,12 @@
 
 .modal__header {
   width: 100%;
-  padding: 1rem 0.25rem;
+  padding: 0.5rem 0.25rem;
   background: #0411a3;
   color: white;
 }
 .modal__content {
-  padding: 1rem 1.5rem;
+  padding: 1rem 0.5rem;
   overflow-y: auto;
 }
 /* 

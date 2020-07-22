@@ -1,58 +1,36 @@
-.hed {
-  font-family: PlayfairDisplay-Regular;
-  font-weight: 900;
-}
 h5 {
   margin: 60px auto 20px auto;
   width: 18%;
   padding: 2px 7px;
   border-bottom: 3px solid;
-  /* border-bottom-color: #7070eb; */
+  font-family: Montserrat-ExtraBold;
+  color: #0411a3;
   border-bottom-color: #06d6a2;
 }
 
 .para {
-  text-align: center;
-  font-family: Vidaloka-Regular;
+  text-align: justify;
+  /* text-justify: inter-word; */
+  font-family: Montserrat-Regular;
   margin: 5px auto;
 }
 .valoresAll {
   margin: 10px auto;
 }
-.valoresBox {
-  min-height: 80px;
-  color: rgba(61, 7, 112, 0.8);
-  background-color: rgba(1, 161, 135, 0.25);
-  font-size: 1.25em;
-  margin: 10px auto;
-  padding: 8px 3px;
-}
 
-.degrade {
-  /* background-color: rgb(151, 57, 241); */
-  width: 100px;
-  background: -moz-linear-gradient(
-    0deg,
-    rgba(151, 57, 241, 0.9592274678111588) 11%,
-    rgba(4, 17, 163, 0.8283261802575107) 36%,
-    rgba(76, 156, 222, 0.9592274678111588) 65%,
-    rgba(8, 206, 198, 1) 97%
-  );
-  background: -webkit-linear-gradient(
-    0deg,
-    rgba(151, 57, 241, 0.9592274678111588) 11%,
-    rgba(4, 17, 163, 0.8283261802575107) 36%,
-    rgba(76, 156, 222, 0.9592274678111588) 65%,
-    rgba(8, 206, 198, 1) 97%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(151, 57, 241, 0.9592274678111588) 11%,
-    rgba(4, 17, 163, 0.8283261802575107) 36%,
-    rgba(76, 156, 222, 0.9592274678111588) 65%,
-    rgba(8, 206, 198, 1) 97%
-  );
-  /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9739f1",endColorstr="#08cec6",GradientType=1); */
+.valoresBox {
+  min-height: 100px;
+  color: #0411a3;
+  font-family: Montserrat-ExtraBold;
+  background-color: #06d6a298;
+  box-shadow: 3px 3px 5px gray;
+  font-size: 0.89em;
+  margin: 10px auto;
+  padding: 20px 3px;
+  border-radius: 2px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .background {

@@ -19,7 +19,7 @@ body {
   height: auto;
   min-height: 90%;
   min-width: 100%;
-  padding: 0 0 80px;
+  /* padding: 0 0 80px; */
   box-sizing: border-box;
   overflow: auto;
 }
@@ -29,9 +29,18 @@ body {
   width: 100%;
 }
 
-.bordea {
+.bordeA {
   border: 1px dashed red;
 }
+
+.bordeB {
+  border: 1px dashed white;
+}
+
+.bordeC {
+  border: 1px solid greenyellow;
+}
+
 .fontA {
   font-family: PlayfairDisplay-Regular;
   font-weight: 900;

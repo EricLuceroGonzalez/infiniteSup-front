@@ -58,11 +58,11 @@ const Landing = (props) => {
           alt="bg logo with cleaning features and products"
         ></img>
       </div>
-      <div className="bordea">
+      <div className="bordeA">
         <div className="mt-5 category">Productos</div>
         <ShowCategories />
       </div>
-      <div className="bordea">
+      <div className="bordeA">
       <div className="mt-5 category">Blog</div>
         <ShowBlog />
       </div>

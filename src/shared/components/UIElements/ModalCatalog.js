@@ -8,6 +8,7 @@ import {
   faHome,
   faIndustry,
   faTree,
+  faUndoAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./ModalCatalog.css";
@@ -189,20 +190,132 @@ const products = [
     category: "Envases e Insumos",
 
     items: [
-      { name: "GALONES BLANCOS", description: "", sizes: "" },
-      { name: "GALONES NATURALES", description: "" },
-      { name: "TAPAS BLANCAS", description: "" },
-      { name: "TAPAS AZULES", description: "" },
-      { name: "CEPILLO DE LAVAR", description: "" },
-      { name: "TRAPEADOR", description: "" },
-      { name: "PASTILLAS PARA BAÑO", description: "" },
-      { name: "ESCOBAS", description: "" },
-      { name: "FOCOS AHORRADORES", description: "" },
-      { name: "RECOGEDORES", description: "" },
-      { name: "ESPONJAS", description: "" },
-      { name: "BRILLOS", description: "" },
-      { name: "SUPER GLUE", description: "" },
-      { name: "TOALLITAS PEPERMINT", description: "" },
+      {
+        name: "GALONES BLANCOS",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "GALONES NATURALES",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "TAPAS BLANCAS",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "TAPAS AZULES",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "CEPILLO DE LAVAR",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "TRAPEADOR",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "PASTILLAS PARA BAÑO",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "ESCOBAS",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "FOCOS AHORRADORES",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "RECOGEDORES",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "ESPONJAS",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "BRILLOS",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "SUPER GLUE",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
+      {
+        name: "TOALLITAS PEPERMINT",
+        description: [],
+        pros: [],
+        sizes: [],
+        fragance: "",
+        domestic: "",
+        industry: "",
+      },
     ],
   },
 ];
@@ -220,11 +333,11 @@ const ModalCatalog = (props) => {
       }
     });
     console.log(categoryItems);
-    console.log(`categoryItems.length: ${categoryItems.length}`);
+    console.log(
+      `categoryItems.length: ${categoryItems ? categoryItems.length : ""}`
+    );
     console.log(`current: ${current}`);
   }, [categoryItems, products, current, props]);
-
-  const renderCategories = () => {};
 
   const renderProdacts = () => {
     if (categoryItems[current]) {
@@ -232,57 +345,79 @@ const ModalCatalog = (props) => {
       console.log(categoryItems[current]);
       return (
         <div>
-          <h6>{categoryItems[current].name}</h6>
+          <div className="d-flex">
+            <p className="col-10 thePurple">{categoryItems[current].name}</p>
+            <p className="col-2 NotAvailable">{`${
+              categoryItems
+                ? "(" + (current + 1) + "/" + categoryItems.length + ")"
+                : ""
+            }`}</p>
+          </div>
           <div className="row d-flex catalogList">
             <div className="col-12 col-sm-4">
               <img
-                src="https://dummyimage.com/200x80/850285/82ad00&text=Imagen+del+producto"
+                src="https://dummyimage.com/200x180/850285/82ad00&text=Imagen+del+producto"
                 alt="product illustration"
               ></img>
             </div>
-            <div className="col-12 col-sm-12 bordea">
-            <div>Descripcion</div>
-                <ol>
-                  {categoryItems[current].description.map((item, i) => {
-                    return <li key={i}>{item}</li>;
-                  })}
-                </ol>
-                <div>Ventajas</div>
-                <ol>
-                  {categoryItems[current].pros.map((item, i) => {
-                    return <li key={i}>{item}</li>;
-                  })}
-                </ol>
-            </div>
-          </div>
-          <div className="d-flex">
-            <div
-              className={`m-3  ${
-                categoryItems[current].fragance ? "available" : "NotAvailable"
-              }`}
-            >
-              <FontAwesomeIcon icon={faTree} />
-              {categoryItems[current].fragance ? (
-                <p className="smallWords">con fragancia</p>
-              ) : (
-                <p className="smallWords">sin fragancia</p>
-              )}
-            </div>
-            <div
-              className={`m-3 ${
-                categoryItems[current].domestic ? "available" : "NotAvailable"
-              }`}
-            >
-              <FontAwesomeIcon icon={faHome} />
-              <p className="smallWords">uso domestico</p>
-            </div>
-            <div
-              className={`m-3 ${
-                categoryItems[current].industry ? "available" : "NotAvailable"
-              }`}
-            >
-              <FontAwesomeIcon icon={faIndustry} />
-              <p className="smallWords">uso industrial</p>
+            <div className="col-12 col-sm-8">
+              <ul>
+                {categoryItems[current].description.map((item, i) => {
+                  return <li key={i}>{item}</li>;
+                })}
+              </ul>
+              <div className="insideTitle">Ventajas ambientales</div>
+              <ol>
+                {categoryItems[current].pros.map((item, i) => {
+                  return <li key={i}>{item}</li>;
+                })}
+              </ol>
+              <div className="insideTitle">Tamaños</div>
+              <div className="d-flex">
+                {categoryItems[current].sizes.map((item, k) => {
+                  return (
+                    <div className="theSizes col-2" key={k}>
+                      {item}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="col-10 col-sm-6 d-flex justify-content-around">
+                <div
+                  className={`  ${
+                    categoryItems[current].fragance
+                      ? "available"
+                      : "NotAvailable"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faTree} />
+                  {categoryItems[current].fragance ? (
+                    <p className="smallWords">con fragancia</p>
+                  ) : (
+                    <p className="smallWords">sin fragancia</p>
+                  )}
+                </div>
+                <div
+                  className={` ${
+                    categoryItems[current].domestic
+                      ? "available"
+                      : "NotAvailable"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faHome} />
+                  <p className="smallWords">uso domestico</p>
+                </div>
+                <div
+                  className={` ${
+                    categoryItems[current].industry
+                      ? "available"
+                      : "NotAvailable"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faIndustry} />
+                  <p className="smallWords">uso industrial</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -294,14 +429,16 @@ const ModalCatalog = (props) => {
       {renderProdacts()}
 
       {categoryItems.length > 1 ? (
-        <div>
+        <div className="d-flex justify-content-end">
           <Button
+            size="small"
             disabled={current < 1 ? true : false}
             onClick={() => setCurrent(current - 1)}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
           <Button
+            size="small"
             disabled={current < categoryItems.length - 1 ? false : true}
             onClick={() =>
               setCurrent(() => {

@@ -1,38 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUndoAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import Modal from "./Modal";
-import Button from "./Button";
 import ModalCatalog from "./ModalCatalog";
 
 const CatModal = (props) => {
   const [description, setDescrition] = useState(props.description);
-  useEffect(() => {
-    // console.log("\n\ninside Modal");
-    // console.log(`show: ${props.show}`);
-    // console.log(props.message);
-  });
 
-  const renderDesc = () => {
-    description.map((item) => {
-      return <p>{item}</p>;
-    });
-  };
   return (
     <Modal
       // onCancel={props.onClear}
       header={
         props.logo ? (
-          <div className="col-12 row d-flex">
+          <div className="col-12 row d-flex align-items-center">
             <div className="col-4 col-md-2">
-              <img className="col-12 col-md-6" src={props.logo} alt="Card cap" />
+              <img
+                style={{maxWidth:'45px'}}
+                src={props.logo}
+                alt="Card cap"
+              />
             </div>
-            <div className="col-6 col-md-8">{props.title}</div>
+            <div className="col-6 col-md-8">
+              <p>{props.title}</p>
+            </div>
             <FontAwesomeIcon
-              className="col-2 col-md-2 ml-auto theAqua"
+              className="col-2 col-md-2 theAqua ml-auto"
               style={{
-                fontSize: "2em",
+                fontSize: "1.75em",
               }}
               onClick={props.closeModal}
               icon={faTimes}
@@ -43,15 +38,15 @@ const CatModal = (props) => {
         )
       }
       show={props.show}
-      footer={
-        <div>
-          <Button onClick={props.onClear}>
-            {" "}
-            <FontAwesomeIcon icon={faUndoAlt} />
-          </Button>
-          <Button onClick={props.onClear}>Saber más</Button>
-        </div>
-      }
+      // footer={
+      //   <div>
+      //     <Button onClick={props.onClear}>
+      //       {" "}
+      //       <FontAwesomeIcon icon={faUndoAlt} />
+      //     </Button>
+      //     <Button onClick={props.onClear}>Saber más</Button>
+      //   </div>
+      // }
     >
       <ModalCatalog category={props.title} />
     </Modal>

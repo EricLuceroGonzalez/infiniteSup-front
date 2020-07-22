@@ -1,15 +1,33 @@
-.NotAvailable{
-    color: rgba(128, 128, 128, 0.459);
+.NotAvailable {
+  color: rgba(128, 128, 128, 0.459);
 }
 
-.available{
-    color: #21cf11;
+.available {
+  color: #0f9b03;
 }
 
-.smallWords{
-    font-size: 0.5em;
+.smallWords {
+  font-size: 0.85em;
+  font-family: Montserrat-Regular;
 }
 
-.catalogList{
-    font-size: 0.6em;
+.catalogList {
+  font-size: 0.6em;
+}
+
+.insideTitle {
+  font-family: Montserrat-Bold;
+  text-transform: uppercase;
+  color: #7070eb;
+}
+.theSizes {
+  margin: 1px 5px 15px 5px;
+  padding: 10px 5px;
+  max-width: 50px;
+  text-align: center;
+  background-color: #08cec6;
+  font-family: Montserrat-ExtraBold;
+  color: #7070eb;
+  border-radius: 2px 18px;
+  font-size: 1.3em;
 }
