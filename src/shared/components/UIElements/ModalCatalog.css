@@ -22,12 +22,12 @@
 }
 .theSizes {
   margin: 1px 5px 15px 5px;
-  padding: 10px 5px;
-  max-width: 50px;
+  padding: 10px 8px;
+  max-width: 80px;
   text-align: center;
   background-color: #08cec6;
   font-family: Montserrat-ExtraBold;
   color: #7070eb;
   border-radius: 2px 18px;
-  font-size: 1.3em;
+  font-size: 1.15em;
 }

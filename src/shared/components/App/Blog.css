@@ -1,0 +1,60 @@
+.entryBox {
+  margin: 2rem 5rem;
+  padding: 24px 3px;
+  box-shadow: 6px 5px 8px rgba(200, 200, 200, 0.6);
+  border: 1px solid #06d6a2;
+  text-align: left;
+}
+
+.entryBox:hover {
+  border: 1px solid #0411a3;
+  cursor: pointer;
+}
+.entryTitle {
+  font-family: Montserrat-ExtraBold;
+  font-size: 1.3rem;
+  color: #0411a3;
+}
+.entryDate {
+  font-size: 0.75rem;
+  font-family: Montserrat-Regular;
+  color: gray;
+}
+
+.entryImg {
+  margin: auto auto;
+  min-width: 90px;
+  max-width: 290px;
+}
+.entryArrow {
+  font-size: 1.2rem;
+  color: #06d6a2;
+  vertical-align: middle;
+  margin: auto;
+  animation: arrowDance 2s ease infinite, nudge 3s ease infinite;
+}
+
+@keyframes arrowDance {
+  0%,
+  10% {
+    color: #08cec6;
+  }
+  90% {
+    color: #4c91de;
+  }
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(1rem, 0);
+  }
+
+  /* 80% {
+    transform: translate(-1rem, 0);
+  } */
+}

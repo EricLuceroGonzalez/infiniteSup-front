@@ -8,6 +8,16 @@ h5 {
   border-bottom-color: #06d6a2;
 }
 
+h2 {
+  margin: 60px auto 20px auto;
+  max-width: 62rem;
+  padding: 2px 7px;
+  border-bottom: 3px solid;
+  font-family: Montserrat-ExtraBold;
+  color: #0411a3;
+  border-bottom-color: #06d6a2;
+}
+
 .para {
   text-align: justify;
   /* text-justify: inter-word; */
@@ -16,6 +26,11 @@ h5 {
 }
 .valoresAll {
   margin: 10px auto;
+}
+
+.itemTitle{
+  font-family: Montserrat-ExtraBold;
+  color: #0411a3;
 }
 
 .valoresBox {

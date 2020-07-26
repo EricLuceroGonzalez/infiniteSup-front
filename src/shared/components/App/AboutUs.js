@@ -34,7 +34,7 @@ const AboutUs = () => {
           panameño.
         </p>
         <h5>VALORES</h5>
-        <div className="row d-flex col-12 col-xl-8 valoresAll">
+        <div className="row d-flex col-12 col-lg-8 valoresAll">
           <div className=" valoresBox col-5 col-sm-5 col-lg-2">CALIDAD</div>
           <div className=" valoresBox col-5 col-sm-5 col-lg-2">
             RESPONSABLE CON EL AMBIENTE

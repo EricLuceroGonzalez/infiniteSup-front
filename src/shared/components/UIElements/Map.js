@@ -9,7 +9,6 @@ const Map = (props) => {
   const { center, zoom } = props;
 
   useEffect(() => {
-    console.log(center);
     if (window.google) {
       // Constructor function --> argments: (where to display, what to display)
       const map = new window.google.maps.Map(mapRef.current, {

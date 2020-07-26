@@ -341,12 +341,10 @@ const ModalCatalog = (props) => {
 
   const renderProdacts = () => {
     if (categoryItems[current]) {
-      console.log(typeof categoryItems);
-      console.log(categoryItems[current]);
       return (
         <div>
-          <div className="d-flex">
-            <p className="col-10 thePurple">{categoryItems[current].name}</p>
+          <div className="d-flex col-10">
+            <p className="col-10 itemTitle thePurple">{categoryItems[current].name}</p>
             <p className="col-2 NotAvailable">{`${
               categoryItems
                 ? "(" + (current + 1) + "/" + categoryItems.length + ")"

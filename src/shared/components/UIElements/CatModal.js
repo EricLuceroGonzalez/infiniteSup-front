@@ -10,7 +10,7 @@ const CatModal = (props) => {
 
   return (
     <Modal
-      // onCancel={props.onClear}
+      onCancel={props.onClear}
       header={
         props.logo ? (
           <div className="col-12 row d-flex align-items-center">

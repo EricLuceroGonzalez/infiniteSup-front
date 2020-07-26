@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/es";
 
 import blogImage from "../../../media/bitmap.png";
 import blogImage1 from "../../../media/bitmap2.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "./TextStyle.css";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import "./Blog.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "../UIElements/Button";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-import logo_small from "../../../media/logo_sm_cut.png";
-const blogEntry = [
+const BlogEntry = [
   {
     id: "blog1",
-    title:
-      "Enseña a tus niños hábitos saludables para frenar la propagación de enfermedades en el salón de clases",
+    title: "Enseña a tus niños hábitos saludables",
     resumen: "A short version of this entry",
     text:
       "Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no te cabe parte dellas.Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no.",
@@ -33,7 +31,7 @@ const blogEntry = [
     image: "https://dummyimage.com/600x400/0450/ffa",
     hasHighlight: true,
     highlight: "",
-    date: "20200602",
+    date: "20200718",
   },
   {
     id: "blog3",
@@ -48,49 +46,75 @@ const blogEntry = [
   },
 ];
 
-const BlogEntry = (props) => {
-  const [endPoint, setEndpoint] = useState();
+// <Link
+// style={{ textDecoration: "none" }}
+// to={`/blog/${item.id}`}
+// target="_blank"
+// key={k}
+// >
+
+// </Link>
+
+const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+};
+
+const Blog = () => {
+  const [width, height] = useWindowSize();
   const history = useHistory();
 
-  useEffect(() => {
-    setEndpoint(history.location.pathname.slice(-5));
-    console.log(endPoint);
-    console.log(props);
-  }, [history.location.pathname, endPoint, props]);
-
   const getEntry = () => {
-    return blogEntry.map((item, k) => {
-      if (item.id === endPoint) {
-        return (
-          <div key={k} className="col-12 mr-auto ml-auto">
-            <div className="col-12 mr-auto ml-auto">
-              <h2>{item.title}</h2>
+    return BlogEntry.map((item, k) => {
+      return (
+        <Link
+          key={k}
+          style={{ textDecoration: "none" }}
+          to={`/blog/${item.id}`}
+        >
+          <div className="row d-flex col-10 col-md-6 mr-auto ml-auto bordeC entryBox">
+            <p className="entryTitle col-12">{item.title}</p>
+            <div className="col-10 col-sm-4">
               <p className="entryDate"> {moment(item.date).format("LL")}</p>
-              <div>
-                <p className="itemTitle">{item.resumen}</p>
+              <p className="para"> {item.resumen}</p>
+            </div>
+            {width > "500" ? (
+              <div className="col-10 col-sm-8 d-flex align-items-end">
+                <img
+                  className="entryImg"
+                  src={item.image}
+                  alt="blog entry"
+                ></img>
+                <FontAwesomeIcon
+                  className="ml-auto entryArrow"
+                  icon={faChevronRight}
+                />
               </div>
-            </div>
-            <div className="mr-auto ml-auto col-12 col-md-10 col-lg-7">
-            <img width="90%" src={item.image} alt="brand logo as footer"></img>
-              <p className="para">{item.text}</p>
-            </div>
+            ) : (
+              <div className="col-2 entryArrow">
+                <FontAwesomeIcon icon={faChevronRight} />
+              </div>
+            )}
           </div>
-        );
-      }
+        </Link>
+      );
     });
   };
   return (
     <div className="mt-3">
-      <h1 className="itemTitle">Blog</h1>
+    <h1 className='itemTitle'>Blog</h1>
       <div>{getEntry()}</div>
-      <Button floating toBack={"/blog"}>
-        <FontAwesomeIcon icon={faArrowCircleLeft} />
-      </Button>
-      <div className="col-12 mt-5 mb-4">
-        <img width="100px" src={logo_small} alt="brand logo as footer"></img>
-      </div>
     </div>
   );
 };
 
-export default BlogEntry;
+export default Blog;

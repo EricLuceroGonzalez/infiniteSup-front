@@ -1,61 +1,95 @@
 .button {
-    font: inherit;
-    padding: 0.25rem 1.5rem;
-    border: 1px solid #7070eb;
-    border-radius: 4px;
-    background: #7070eb;
-    color: white;
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
-    display: inline-block;
+  font: inherit;
+  padding: 0.25rem 1.5rem;
+  border: 1px solid #7070eb;
+  border-radius: 4px;
+  background: #7070eb;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover,
+.button:active {
+  background: #0411a3;
+  border-color: #0411a3;
+}
+
+.button--inverse {
+  background: transparent;
+  color: #7070eb;
+}
+
+.button--inverse:hover,
+.button--inverse:active {
+  color: white;
+  background: #7070eb;
+}
+
+.button--danger {
+  background: #830000;
+  border-color: #830000;
+}
+
+.button--danger:hover,
+.button--danger:active {
+  background: #f34343;
+  border-color: #f34343;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button--small {
+  font-size: 0.75rem;
+}
+
+.button--big {
+  font-size: 1.5rem;
+}
+
+.button--float {
+  text-decoration: none;
+  position: fixed;
+  /* width: 60px;
+    height: 60px; */
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  bottom: 40px;
+  left: 5px;
+  background-color: none;
+  color: #fff;
+  border-radius: 90px;
+  text-align: center;
+  /* box-shadow: 2px 2px 3px #999; */
+  margin: auto;
+  animation: nudge 3s ease infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
-  
-  .button:focus {
-    outline: none;
+
+  50% {
+    transform: translate(2rem, 0);
   }
-  
-  .button:hover,
-  .button:active {
-    background: #0411a3;
-    border-color: #0411a3;
-  }
-  
-  .button--inverse {
-    background: transparent;
-    color: #7070eb;
-  }
-  
-  .button--inverse:hover,
-  .button--inverse:active {
-    color: white;
-    background: #7070eb;
-  }
-  
-  .button--danger {
-    background: #830000;
-    border-color: #830000;
-  }
-  
-  .button--danger:hover,
-  .button--danger:active {
-    background: #f34343;
-    border-color: #f34343;
-  }
-  
-  .button:disabled,
-  .button:hover:disabled,
-  .button:active:disabled {
-    background: #ccc;
-    color: #979797;
-    border-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .button--small {
-    font-size: 0.75rem;
-  }
-  
-  .button--big {
-    font-size: 1.5rem;
-  }
+
+  /* 80% {
+    transform: translate(-1rem, 0);
+  } */
+}

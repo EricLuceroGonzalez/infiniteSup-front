@@ -17,16 +17,19 @@
 .modal__header {
   width: 100%;
   padding: 0.5rem 0.25rem;
-  background: #0411a3;
-  color: white;
+  /* background: #0411a3; */
+  color: #06d6a2;
+  font-size: 0.6rem;
 }
 .modal__content {
   padding: 1rem 0.5rem;
   overflow-y: auto;
 }
-/* 
+
 .modal__footer {
+  margin-top: 12px;
   padding: 1rem 0.5rem;
+  font-size: 0.85rem;
 }
 
 @media (min-width: 768px) {
@@ -35,7 +38,7 @@
     width: 40rem;
   }
 }
-*/
+
 .modal-enter {
   transform: translateY(-10rem);
   opacity: 0;
