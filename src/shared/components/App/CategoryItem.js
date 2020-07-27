@@ -18,7 +18,7 @@ const CategoryItem = (props) => {
     <div
       className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
     >
-      <CatModal
+        <CatModal
         show={showModal}
         closeModal={() => openCloseModal()}
         title={props.category}
@@ -32,13 +32,14 @@ const CategoryItem = (props) => {
         message={props.category}
         onClear={errorHandler}
       />
+
       <img
       onClick={() => {
         setShowModal(!showModal);
       }}
 
         className="card-img-top img-restr"
-        src={props.imgsource}
+        src={props.logo}
         alt="Card cap"
       />
       <h4 className="card-title img-text">{props.category}</h4>

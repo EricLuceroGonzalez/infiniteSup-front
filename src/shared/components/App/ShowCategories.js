@@ -14,10 +14,10 @@ import fgCatD from "../../../media/fg-icon-floor.png";
 import fgCatE from "../../../media/fg-icon-industry.png";
 import fgCatF from "../../../media/fg-icon-supply.png";
 
-
 import { useHistory } from "react-router-dom";
 import CatModal from "../UIElements/CatModal";
 import CategoryItem from "./CategoryItem";
+import { useHttpClient } from "../../hooks/http-hook";
 
 const products = [
   {
@@ -201,23 +201,32 @@ const products = [
   },
 ];
 const ShowCategories = (props) => {
-  const [cats, setCats] = useState(products);
+  const [categories, setCategories] = useState(products);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
 
-  useEffect(() => {
-    console.log(products);
-  }, []);
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const responseData = await sendRequest(
+  //         `${process.env.REACT_APP_BACKEND_URL}products/getCategories`
+  //       );
+  //       setCategories(responseData.categories);
+  //       console.log(responseData.categories);
+  //     } catch (err) {}
+  //   };
+  //   fetchCategories();
+  // }, [sendRequest]);
 
   const renderCats = () => {
-    return cats.map((item, k) => {
+    return categories.map((item, k) => {
       // console.log(item.source);
       return (
         <CategoryItem
           key={k}
           category={item.category}
-          logo={item.logo}
-          items={item.items.length}
-          imgsource={item.source}
+          logo={item.source}
+          imgSource={item.source}
           pros={item.items[0].pros}
           name={item.items[0].name}
           description={item.items[0].description}

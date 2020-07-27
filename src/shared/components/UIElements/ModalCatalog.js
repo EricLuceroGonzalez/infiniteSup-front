@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { render } from "@testing-library/react";
-import CategoryItem from "../App/CategoryItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -8,8 +6,20 @@ import {
   faHome,
   faIndustry,
   faTree,
-  faUndoAlt,
 } from "@fortawesome/free-solid-svg-icons";
+
+import jabonFregar from "../../../media/product/jabon-liquido-fregar.png";
+import jabonManos from "../../../media/product/jabon-liquido-manos.png";
+import jabonSuavizante from "../../../media/product/jabon-liquido-suavizante.png";
+import fuerteX from "../../../media/product/detergente-sin-fragancia.png";
+import detergenteFragancia from "../../../media/product/detergente-con-fragancia.png";
+import limpiadorMultiusos from "../../../media/product/limpiadores-multiusos.png";
+import desengrasanteMultiusos from "../../../media/product/desengrasante-multiusos.png";
+import desengrasanteIndustrial from "../../../media/product/desengrasante-industrial.png";
+import limpiaVidrios from "../../../media/product/limpia-vidrios.png";
+import insumosA from "../../../media/product/insumos.png";
+import insumosB from "../../../media/product/insumos(1).png";
+import insumosC from "../../../media/product/insumos(2).png";
 
 import "./ModalCatalog.css";
 import Button from "./Button";
@@ -21,6 +31,7 @@ const products = [
     items: [
       {
         name: "Jabón Líquido para fregar",
+        image: jabonFregar,
         description: [
           "Jabón liquido para lavar vajillas, con fragancia limón y toque de crema que no reseca y mantiene las manos humectadas.",
           "Es eficaz y efectivo para arrancar la grasa.",
@@ -43,6 +54,7 @@ const products = [
     items: [
       {
         name: "Jabón Líquido para manos",
+        image: jabonManos,
         description: [
           "Jabón liquido para manos, con fragancia a almendra y toque de crema que no reseca y mantiene las manos humectadas.",
           "Es eficaz y efectivo en la limpieza.",
@@ -59,6 +71,7 @@ const products = [
       },
       {
         name: "Suavizante de tela",
+        image: jabonSuavizante,
         description: [
           "Suavizante de tela, con fragancia a bebé.",
           "Cuenta con una formula humectante desarrollada para proteger la ropa, disminuir las arrugas para un fácil planchado y dejar la ropa más suave.",
@@ -81,6 +94,7 @@ const products = [
     items: [
       {
         name: "fuerteX",
+        image: fuerteX,
         description: [
           "Detergente sin fragancia de fácil disolución.",
           "Voluminoso (rendidor) eficaz contra las manchas y todo tipo de suciedad.",
@@ -99,6 +113,7 @@ const products = [
       },
       {
         name: "Detergente en polvo (Lavanda, Floral, Limón)",
+        image: detergenteFragancia,
         description: [
           "Detergente con fragancia a: LAVANDA, FLORAL Y LIMÓN.",
           "Este producto es rendidor, de fácil disolución.",
@@ -125,6 +140,7 @@ const products = [
     items: [
       {
         name: "Limpiadores Multiusos",
+        image: limpiadorMultiusos,
         description: [
           "Los limpiadores multiusos, se pueden utilizar en pisos, cocinas, baños, inodoros, basureros etc.",
           "Son Soluble en agua, no necesitan de otros disolventes o componentes y se disuelven fácilmente en cantidades controladas.",
@@ -139,6 +155,7 @@ const products = [
       },
       {
         name: "Desengrasante Multiusos",
+        image: desengrasanteMultiusos,
         description: [
           "Este producto puede ser utilizado en cocinas, refrigeradoras, estufas y hornos, quemadores y extractores, paredes, marcos de ventanas, puertas, pisos y gabinetes.",
           "Cuenta con la presentación domestica.",
@@ -158,6 +175,7 @@ const products = [
     items: [
       {
         name: "Desengrasante Multiusos Industrial",
+        image: desengrasanteIndustrial,
         description: [
           "Este producto puede ser utilizado en cocinas, refrigeradoras, estufas y hornos, quemadores y extractores, paredes, marcos de ventanas, puertas, pisos y gabinetes.",
         ],
@@ -173,6 +191,7 @@ const products = [
       },
       {
         name: "Limpiavidrios",
+        image: limpiaVidrios,
         description: [
           "Este producto está hecho con solventes orgánicos, puede ser utilizado en cualquier superficie de vidrio y ventanas.",
           "Se actúa con rapidez sobre las superficies y no opaca.",
@@ -192,6 +211,7 @@ const products = [
     items: [
       {
         name: "GALONES BLANCOS",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -201,6 +221,7 @@ const products = [
       },
       {
         name: "GALONES NATURALES",
+        image: insumosB,
         description: [],
         pros: [],
         sizes: [],
@@ -210,6 +231,7 @@ const products = [
       },
       {
         name: "TAPAS BLANCAS",
+        image: insumosC,
         description: [],
         pros: [],
         sizes: [],
@@ -219,6 +241,7 @@ const products = [
       },
       {
         name: "TAPAS AZULES",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -228,6 +251,7 @@ const products = [
       },
       {
         name: "CEPILLO DE LAVAR",
+        image: insumosB,
         description: [],
         pros: [],
         sizes: [],
@@ -237,6 +261,7 @@ const products = [
       },
       {
         name: "TRAPEADOR",
+        image: insumosC,
         description: [],
         pros: [],
         sizes: [],
@@ -246,6 +271,7 @@ const products = [
       },
       {
         name: "PASTILLAS PARA BAÑO",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -255,6 +281,7 @@ const products = [
       },
       {
         name: "ESCOBAS",
+        image: insumosB,
         description: [],
         pros: [],
         sizes: [],
@@ -264,6 +291,7 @@ const products = [
       },
       {
         name: "FOCOS AHORRADORES",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -273,6 +301,7 @@ const products = [
       },
       {
         name: "RECOGEDORES",
+        image: insumosC,
         description: [],
         pros: [],
         sizes: [],
@@ -282,6 +311,7 @@ const products = [
       },
       {
         name: "ESPONJAS",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -291,6 +321,7 @@ const products = [
       },
       {
         name: "BRILLOS",
+        image: insumosB,
         description: [],
         pros: [],
         sizes: [],
@@ -300,6 +331,7 @@ const products = [
       },
       {
         name: "SUPER GLUE",
+        image: insumosC,
         description: [],
         pros: [],
         sizes: [],
@@ -309,6 +341,7 @@ const products = [
       },
       {
         name: "TOALLITAS PEPERMINT",
+        image: insumosA,
         description: [],
         pros: [],
         sizes: [],
@@ -344,7 +377,9 @@ const ModalCatalog = (props) => {
       return (
         <div>
           <div className="d-flex col-10">
-            <p className="col-10 itemTitle thePurple">{categoryItems[current].name}</p>
+            <p className="col-10 itemTitle thePurple">
+              {categoryItems[current].name}
+            </p>
             <p className="col-2 NotAvailable">{`${
               categoryItems
                 ? "(" + (current + 1) + "/" + categoryItems.length + ")"
@@ -352,9 +387,10 @@ const ModalCatalog = (props) => {
             }`}</p>
           </div>
           <div className="row d-flex catalogList">
-            <div className="col-12 col-sm-4">
+            <div className="col-12 col-sm-4 ">
               <img
-                src="https://dummyimage.com/200x180/850285/82ad00&text=Imagen+del+producto"
+              className='productShowImg'
+                src={categoryItems[current].image}
                 alt="product illustration"
               ></img>
             </div>

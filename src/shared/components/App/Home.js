@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import ShowWindowDimensions from "../../hooks/ShowWindowDimensions-hook";
 
-import bg1m from "../../../media/bg/1-mobile.jpg";
-import bg2m from "../../../media/bg/2-mobile.jpg";
-import bg3m from "../../../media/bg/3-mobile.jpg";
-import bg4m from "../../../media/bg/4-mobile.jpg";
+import bg1m from "../../../media/bg/1-mobile.png";
+import bg2m from "../../../media/bg/2-mobile.png";
+import bg3m from "../../../media/bg/3-mobile.png";
+import bg4m from "../../../media/bg/4-mobile.png";
 
-import bg1b from "../../../media/bg/1-1920x1080.jpg";
-import bg2b from "../../../media/bg/2-1920x1080.jpg";
-import bg3b from "../../../media/bg/3-1920x1080.jpg";
-// import bg4b from "../../../media/bg/4-1920x1080.jpg";
+import bg1b from "../../../media/bg/1-1920x1080.png";
+import bg2b from "../../../media/bg/2-1920x1080.png";
+import bg3b from "../../../media/bg/3-1920x1080.png";
+// import bg4b from "../../../media/bg/4-1920x1080.png";
 // <BackgroundSlideshow images={[imageUrl]} />
 
 import ShowCategories from "./ShowCategories";
