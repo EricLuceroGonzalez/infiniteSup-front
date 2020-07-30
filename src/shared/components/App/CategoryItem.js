@@ -24,7 +24,7 @@ const CategoryItem = (props) => {
         title={props.category}
         prodName={props.name}
         items={props.items}
-        logo={props.logo}
+        logo={props.imgSource}
         description={props.description}
         pros={props.pros}
         sizes={props.sizes}

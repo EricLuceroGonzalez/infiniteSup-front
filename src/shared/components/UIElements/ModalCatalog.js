@@ -365,11 +365,11 @@ const ModalCatalog = (props) => {
         return item.items;
       }
     });
-    console.log(categoryItems);
-    console.log(
-      `categoryItems.length: ${categoryItems ? categoryItems.length : ""}`
-    );
-    console.log(`current: ${current}`);
+    // console.log(categoryItems);
+    // console.log(
+    //   `categoryItems.length: ${categoryItems ? categoryItems.length : ""}`
+    // );
+    // console.log(`current: ${current}`);
   }, [categoryItems, products, current, props]);
 
   const renderProdacts = () => {

@@ -202,21 +202,22 @@ const products = [
 ];
 const ShowCategories = (props) => {
   const [categories, setCategories] = useState(products);
+  const [caty, setCaty] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
 
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const responseData = await sendRequest(
-  //         `${process.env.REACT_APP_BACKEND_URL}products/getCategories`
-  //       );
-  //       setCategories(responseData.categories);
-  //       console.log(responseData.categories);
-  //     } catch (err) {}
-  //   };
-  //   fetchCategories();
-  // }, [sendRequest]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
+        );
+        setCaty(responseData.categories);
+        console.log(responseData.categories);
+      } catch (err) {}
+    };
+    fetchCategories();
+  }, [sendRequest]);
 
   const renderCats = () => {
     return categories.map((item, k) => {
@@ -226,7 +227,7 @@ const ShowCategories = (props) => {
           key={k}
           category={item.category}
           logo={item.source}
-          imgSource={item.source}
+          imgSource={item.logo}
           pros={item.items[0].pros}
           name={item.items[0].name}
           description={item.items[0].description}

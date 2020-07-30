@@ -2,8 +2,9 @@ import React, { useLayoutEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/es";
 
-import blogImage from "../../../media/bitmap.png";
-import blogImage1 from "../../../media/bitmap2.png";
+import blogImage1 from "../../../media/donaciones.jpeg";
+import blogImage2 from "../../../media/bitmap2.png";
+import blogImage3 from "../../../media/navlogo.png";
 import { useHistory, Link } from "react-router-dom";
 import "./TextStyle.css";
 import "./Blog.css";
@@ -13,33 +14,34 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 const BlogEntry = [
   {
     id: "blog1",
-    title: "Enseña a tus niños hábitos saludables",
-    resumen: "A short version of this entry",
+    title: "Entrega de Donaciones",
+    resumen: "Acciones de responsabilidad social",
     text:
-      "Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no te cabe parte dellas.Y, viéndole don Quijote de aquella manera, con muestras de tanta tristeza, le dijo: Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti no.",
-    image: blogImage,
+      "Como parte de nuestras acciones de responsabilidad social, el pasado mes, el equipo de Infinite Supplies, entregó productos de limpieza Fuertex a diferentes fundaciones entre ellas, el Comedor Casa de Pan, quienes brindan comida a niños de escasos recursos en el área de Felipillo. Recibió la donación la señora Belén, quien lleva muchos años realizando esta noble gestión.",
+    image: blogImage1,
     hasHighlight: true,
     highlight: "",
     date: "20200202",
   },
   {
     id: "blog2",
-    title: "Blog entry title 2",
-    resumen: "A short version of this entry",
+    title: "Productos de Calidad Fuertex",
+    resumen: "Gama de productos de limpieza Fuertex",
     text:
-      "La cigüeña tocaba cada vez mejor el saxofón y el búho pedía kiwi y queso. El jefe buscó el éxtasis en un imprevisto baño de whisky y gozó como un duque. Exhíbanse politiquillos zafios, con orejas kilométricas y uñas de gavilán.",
-    image: "https://dummyimage.com/600x400/0450/ffa",
+      "Fuertex, ofrece una amplia gama de productos para la limpieza del hogar y empresas,  todos fabricados con materia prima de alta calidad, amigables con el ambiente, de rápida acción y eficaz con la eliminación del sucio y las impurezas. Fuertex es una marca panameña,  elaborada, envasada y distruida por Infnite Supplies. Todos nuestros productos son elborados con materia prima biodegradable, pensados en la seguridad y protección del consumidor.",
+    image: blogImage2,
     hasHighlight: true,
     highlight: "",
     date: "20200718",
   },
   {
     id: "blog3",
-    title: "Blog entry title 3",
-    resumen: "A short version of this entry",
+    title:
+      "Nueva Imagen, con el mismo servicio y  los productos que necesitas.",
+    resumen: "Mejor servicio e imagen",
     text:
-      "El cadáver de Wamba, rey godo de España, fue exhumado y trasladado en una caja de zinc que pesó un kilo. El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro. El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.Quiere la boca exhausta vid, kiwi, piña y fugaz jamón. Fabio me exige, sin tapujos, que añada cerveza al whisky. Jovencillo emponzoñado de whisky, ¡qué figurota exhibes! La cigüeña tocaba cada vez mejor el saxofón y el búho pedía kiwi y queso. El jefe buscó el éxtasis en un imprevisto baño de whisky y gozó como un duque. Exhíbanse politiquillos zafios, con orejas kilométricas y uñas de gavilán. ",
-    image: blogImage1,
+      "Infinite Supplies estrena nueva imagen corporativa, una imagen mas fresca, dinámica y fuerte. Redefinimos nuestra misión y visión de negocio, lo que nos consolida como una empresa seria y responsable con nuestros clientes y consumidores. Nos respaldan los cuatro valores que nos caterizan, Calidad, Responsables con el Ambiente, Confianza y Agilidad. Reforzamos nuestros inventario e ingresamos a la familia Infinte nuevos productos para cumplir con nuestra promesa de que Infinite Supplies tiene lo que necesitas.",
+    image: blogImage3,
     hasHighlight: true,
     highlight: "",
     date: "20200614",
@@ -111,7 +113,7 @@ const Blog = () => {
   };
   return (
     <div className="mt-3">
-    <h1 className='itemTitle'>Blog</h1>
+      <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>
     </div>
   );
