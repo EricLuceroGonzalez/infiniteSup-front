@@ -9,24 +9,31 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
     <div className="col-12 footer-bar d-flex">
-      <div className="col-12 col-sm-4">
+      <div className="col-12 col-sm-3">
         <FontAwesomeIcon
           icon={faHeart}
           style={{ color: "rgb(236, 27, 12)", marginRight: "8px" }}
         />
         Infinite Supplies, S.A.
       </div>
-      <div className="col-6  col-sm-4">
+      <div className="col-6  col-sm-3">
         <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "8px" }} />
-        infinitesupplies
+        infinitesuppliessa
       </div>
-      <div className="col-6  col-sm-4">
+      <div className="col-6  col-sm-3">
         <FontAwesomeIcon
           icon={faPhoneAlt}
           style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
         />
         (+507) 6291-7954
       </div>
+      <div className="col-6  col-sm-3">
+      <FontAwesomeIcon
+        icon={faPhoneAlt}
+        style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
+      />
+      (+507) 382- 8846/47
+    </div>
     </div>
   );
 };

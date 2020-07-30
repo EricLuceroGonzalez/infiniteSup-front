@@ -6,6 +6,9 @@ import { useHistory } from "react-router-dom";
 import blogImage1 from "../../../media/donaciones.jpeg";
 import blogImage2 from "../../../media/bitmap2.png";
 import blogImage3 from "../../../media/navlogo.png";
+import "./Blog.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 const blogEntry = [
   {
     id: "blog1",
@@ -59,24 +62,35 @@ const ShowBlog = (props) => {
       // console.log(item.title);
 
       return (
-        <div
-          key={k}
-          className="mt-5 card col-12 col-md-3"
-          onClick={() => {
-            history.push(`/blog/${item.id}`);
-          }}
-        >
-          <img className="card-img-top" src={item.image} alt="Card imge cap" />
-          <div className="card-body">
-            <h3 className="card-title">{item.title}</h3>
-            <p className="card-text">{item.resumen}</p>
-            <p className="card-text">
-              <small className="text-muted">
-                {moment(item.date).startOf("day").fromNow()}
-              </small>
-            </p>
-          </div>
-        </div>
+        <React.Fragment>
+          <div
+            key={k}
+            className="row d-flex col-3 mr-auto ml-auto entryBox"
+            onClick={() => {
+              history.push(`/blog/${item.id}`);
+            }}
+          >
+              <div className="col-12 d-flex align-items-end">
+                <img
+                  className="entryImg"
+                  src={item.image}
+                  alt="blog entry"
+                ></img>
+              </div>
+              <p className="mt-4 entryTitle col-12">{item.title}</p>
+              <div className="col-10 col-sm-12">
+                <p className="entryDate"> {moment(item.date).format("LL")}</p>
+                <p className="para"> {item.resumen}</p>
+                <div className="entryDate">
+                  Leer mas{" "}
+                  <FontAwesomeIcon
+                    className="ml-auto entryArrow"
+                    icon={faChevronRight}
+                  />
+                </div>
+              </div>
+            </div>
+        </React.Fragment>
       );
     });
   };

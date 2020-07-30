@@ -2,7 +2,7 @@
   flex-direction: column;
 }
 
-.category{
+.category {
   color: #7070eb;
   font-size: 2em;
   text-transform: uppercase;
@@ -16,5 +16,19 @@
 .bgImage {
   min-height: 99vh;
   max-width: 100%;
-  /* border: 1px solid red; */
+  /* animation: fade 1.2s ease-in; */
 }
+
+.changeBgIndex {
+  animation: fade 6.0s ease-in-out;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+} 
