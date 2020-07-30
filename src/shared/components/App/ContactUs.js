@@ -17,7 +17,7 @@ import SendMessageModal from "../UIElements/SendMessageModal";
 import logo_small from "../../../media/logo_sm_cut.png";
 const ContactUs = () => {
   const [showModal, setShowModal] = useState(false);
-  const [setMedia, setSetMedia] = useState('');
+  const [setMedia, setSetMedia] = useState("");
 
   const errorHandler = () => {
     setShowModal(false);
@@ -25,7 +25,7 @@ const ContactUs = () => {
 
   const openCloseModal = (a) => {
     console.log(a);
-    setSetMedia(a)
+    setSetMedia(a);
     setShowModal(!showModal);
   };
 
@@ -62,21 +62,24 @@ const ContactUs = () => {
             iconName={faPencilAlt}
             name="Escríbenos:"
           />
-          <div style={{ fontFamily: "Montserrat-Bold" }}>
+          <div
+            style={{
+              fontFamily: "Montserrat-Bold",
+            }}
+          >
             <Button
               onClick={() => {
                 openCloseModal("email");
               }}
             >
-              <FontAwesomeIcon icon={faEnvelope} />{" "}Correo
+              <FontAwesomeIcon icon={faEnvelope} /> Correo
             </Button>
             <Button
               onClick={() => {
                 openCloseModal("whatsapp");
               }}
             >
-              <FontAwesomeIcon icon={faWhatsapp} />
-              {" "}Whatsapp
+              <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp
             </Button>
           </div>
         </div>
@@ -91,9 +94,9 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className='col-12 mt-5 mb-4'>
-      <img width='100px' src={logo_small} alt="brand logo as footer"></img>
-    </div>
+      <div className="col-12 mt-5 mb-4">
+        <img width="100px" src={logo_small} alt="brand logo as footer"></img>
+      </div>
     </React.Fragment>
   );
 };
