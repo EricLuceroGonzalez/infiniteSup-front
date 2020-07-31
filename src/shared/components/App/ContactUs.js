@@ -36,7 +36,7 @@ const ContactUs = () => {
         setMedia={setMedia}
         closeModal={() => openCloseModal()}
         onClear={errorHandler}
-        title={"Contactanos:"}
+        title={"Contáctanos:"}
       />
       <div className="row d-flex mt-5 col-12">
         <div className="col-12 col-sm-8 pb-4">
@@ -54,7 +54,7 @@ const ContactUs = () => {
           <ContactCard
             color="thePurple"
             iconName={faInstagram}
-            href="https://example.zendesk.com/hc/en-us/articles/123456789-Privacy-Policies"
+            href="https://www.instagram.com/infinitesuppliessa/"
             name="@infinitesuppliessa"
           />
           <ContactCard
@@ -68,6 +68,7 @@ const ContactUs = () => {
             }}
           >
             <Button
+              animate="animate-btn"
               onClick={() => {
                 openCloseModal("email");
               }}
@@ -75,11 +76,12 @@ const ContactUs = () => {
               <FontAwesomeIcon icon={faEnvelope} /> Correo
             </Button>
             <Button
+              animate="animate-btn"
               onClick={() => {
                 openCloseModal("whatsapp");
               }}
             >
-              <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp
+              <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
             </Button>
           </div>
         </div>
@@ -90,7 +92,7 @@ const ContactUs = () => {
             Ubicación
           </div>
           <div className="col-12 map-container">
-            <Map center={{ lat: 9.0716298, lng: -79.5208301 }} zoom={16} />
+            <Map center={{ lat: 9.0716298, lng: -79.5208301 }} zoom={17} />
           </div>
         </div>
       </div>

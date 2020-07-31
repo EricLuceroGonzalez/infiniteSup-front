@@ -15,7 +15,6 @@ import fgCatE from "../../../media/fg-icon-industry.png";
 import fgCatF from "../../../media/fg-icon-supply.png";
 
 import { useHistory } from "react-router-dom";
-import CatModal from "../UIElements/CatModal";
 import CategoryItem from "./CategoryItem";
 import { useHttpClient } from "../../hooks/http-hook";
 
@@ -203,22 +202,32 @@ const products = [
 const ShowCategories = (props) => {
   const [categories, setCategories] = useState(products);
   const [caty, setCaty] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const history = useHistory();
 
   useEffect(() => {
+    setIsMounted(true);
     const fetchCategories = async () => {
-      try {
-        const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
-        );
-        setCaty(responseData.categories);
-        console.log(responseData.categories);
-      } catch (err) {}
+      if (isMounted) {
+        try {
+          const responseData = await sendRequest(
+            `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
+          );
+          setCaty(responseData.categories);
+          console.log(responseData.categories);
+        } catch (err) {}
+      }
     };
     fetchCategories();
-  }, [sendRequest]);
+  }, [sendRequest, isMounted]);
 
+  useEffect(() => {
+    return () => {
+      console.log("getting out!");
+
+      setIsMounted(false);
+    };
+  },[]);
   const renderCats = () => {
     return categories.map((item, k) => {
       // console.log(item.source);

@@ -54,7 +54,6 @@ const ShowBlog = (props) => {
 
   useEffect(() => {
     moment.locale("es");
-    // console.log(blogEntry);
   }, []);
 
   const showBlogCars = () => {
@@ -62,10 +61,9 @@ const ShowBlog = (props) => {
       // console.log(item.title);
 
       return (
-        <React.Fragment>
           <div
             key={k}
-            className="row d-flex col-3 mr-auto ml-auto entryBox"
+            className="row d-flex col-12 col-md-3 mr-auto ml-auto entryBox"
             onClick={() => {
               history.push(`/blog/${item.id}`);
             }}
@@ -90,7 +88,6 @@ const ShowBlog = (props) => {
                 </div>
               </div>
             </div>
-        </React.Fragment>
       );
     });
   };

@@ -79,6 +79,10 @@
   animation: nudge 3s ease infinite;
 }
 
+.animate-btn {
+  animation: danceBtn 5s ease infinite;
+}
+
 @keyframes nudge {
   0%,
   100% {
@@ -89,7 +93,15 @@
     transform: translate(2rem, 0);
   }
 
-  /* 80% {
-    transform: translate(-1rem, 0);
-  } */
+}
+
+@keyframes danceBtn {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+    background: #0411a3;
+  }
 }

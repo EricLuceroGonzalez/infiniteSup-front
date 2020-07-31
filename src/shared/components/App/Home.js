@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
-import ShowWindowDimensions from "../../hooks/ShowWindowDimensions-hook";
 
 import bg1m from "../../../media/bg/1-mobile.png";
 import bg2m from "../../../media/bg/2-mobile.png";
@@ -15,9 +14,7 @@ import bg4b from "../../../media/bg/4-1980x1080.png";
 import ShowCategories from "./ShowCategories";
 import ShowBlog from "./ShowBlog";
 import "./Home.css";
-import CatModal from "../UIElements/CatModal";
-import Modal from "../UIElements/Modal";
-import { CSSTransition, transit } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -40,44 +37,52 @@ const Landing = (props) => {
   const [bgMobile, setBgMobile] = useState([bg1m, bg2m, bg3m, bg4m]);
   const [bgImage, setBgImage] = useState("");
   const [bgTimer, setBgTimer] = useState(0);
-  const [transit, setTransit] = useState("");
+  const [imageIn, setImageIn] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (bgTimer < 3) {
-      setTimeout(() => {
-        setTransit("changeBgIndex");
-        setBgTimer(bgTimer + 1);
-      }, 6200);
-      setTransit("");
-    } else {
-      setTimeout(() => {
-        setBgTimer(0);
-      }, 6200);
+    setIsMounted(true);
+    if (isMounted) {
+      if (bgTimer < 3) {
+        setTimeout(() => {
+          setImageIn(true);
+          setBgTimer(bgTimer + 1);
+        }, 6200);
+        // setImageIn(false)
+      } else {
+        setTimeout(() => {
+          setImageIn(true);
+          setBgTimer(0);
+        }, 6200);
+      }
+      if (width > 768) {
+        setBgImage(bgImages[bgTimer]);
+      } else {
+        setBgImage(bgMobile[bgTimer]);
+      }
     }
-    if (width > 768) {
-      setBgImage(bgImages[bgTimer]);
-    } else {
-      setBgImage(bgMobile[bgTimer]);
-    }
-  }, [width, bgTimer, bgImages, bgMobile]);
+  }, [width, bgTimer, bgImages, bgMobile, isMounted]);
+
 
   useEffect(() => {
-    setTransit("changeBgIndex");
-  }, [bgTimer]);
-
-  const errorHandler = () => {
-    // setShowModal(false);
-  };
-
+    return () => {
+      console.log("perras!");
+      setIsMounted(false)
+    };
+  }, []);
   const bgTransit = () => {
-    console.log(`Here bgTimer: ${bgTimer}`);
-
+    // console.log(`Here bgTimer: ${bgTimer}`);
+    // console.log(`Here imageIn: ${imageIn}`);
     return (
-      <img
-        className={`bgImage ${transit}`}
-        src={bgImage}
-        alt="bg logo with cleaning features and products"
-      ></img>
+      <div>
+        <CSSTransition in={imageIn} timeout={300} classNames="sample">
+          <img
+            className="bgImage"
+            src={bgImage}
+            alt={"Brand logo, people cleaning"}
+          />
+        </CSSTransition>
+      </div>
     );
   };
 

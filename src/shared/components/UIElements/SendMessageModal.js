@@ -21,6 +21,15 @@ import Input from "./Input";
 
 const SendMessageModal = (props) => {
   const [description, setDescrition] = useState(props.description);
+  const [isMail, setIsMail] = useState();
+
+  useState(() => {
+    if (props.setMedia === "whatsapp") {
+      setIsMail(false);
+    } else {
+      setIsMail(true);
+    }
+  }, [props]);
 
   const [formState, inputHandler] = useForm(
     {
@@ -59,27 +68,48 @@ const SendMessageModal = (props) => {
         </div>
       }
     >
-      <div className="col-12 col-sm-8 mb-4"
-      style={{padding: '60px 10px'}}>
-        <FontAwesomeIcon
-          icon={props.setMedia === "whatsapp" ? faWhatsapp : faEnvelope}
-        />{" "}
-        Envia un mensaje a nuestro{" "}
-        {props.setMedia === "whatsapp" ? "WhatsApp:" : "correo electrónico:"}
+      <div className="col-12 col-sm-8 mb-5">
+        <div className="row d-flex col-12">
+          <div className="col-2">
+            {" "}
+            <FontAwesomeIcon
+              style={{ fontSize: "2.35rem" }}
+              className="theAqua"
+              icon={isMail ? faEnvelope : faWhatsapp}
+            />
+          </div>
+          <div className="col-10">
+            {" "}
+            Envía un mensaje a nuestro{" "}
+            {isMail ? "correo electrónico:" : "WhatsApp:"}
+          </div>
+        </div>
         <Input
-        id="name"
-        element="input"
-        type="text"
-        label="Nombre"
-        placeholder="Dejanos tu nombre..."
-        validators={[
-          VALIDATOR_REQUIRE,
-          VALIDATOR_MINLENGTH(5),
-          VALIDATOR_MAXLENGTH(100),
-        ]}
-        errorText="Introduce un valor correcto"
-        onInput={inputHandler}
-      />
+          id="name"
+          element="input"
+          type="text"
+          label="Nombre"
+          placeholder="Dejanos tu nombre..."
+          validators={[
+            VALIDATOR_REQUIRE,
+            VALIDATOR_MINLENGTH(5),
+            VALIDATOR_MAXLENGTH(100),
+          ]}
+          errorText="Introduce un valor correcto"
+          onInput={inputHandler}
+        />
+        {isMail && (
+          <Input
+            id="email"
+            element="input"
+            type="text"
+            label="Email"
+            placeholder="Tu correo..."
+            validators={[VALIDATOR_REQUIRE, VALIDATOR_EMAIL]}
+            errorText="Introduce un valor correcto"
+            onInput={inputHandler}
+          />
+        )}
         <Input
           id="email"
           element="textarea"

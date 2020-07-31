@@ -44,7 +44,7 @@ const Button = (props) => {
   }
   return (
     <button
-      className={`button button--${props.size || "default"} ${
+      className={`button ${props.animate} button--${props.size || "default"} ${
         props.inverse && "button--inverse"
       } ${props.danger && "button--danger"}`}
       type={props.type}

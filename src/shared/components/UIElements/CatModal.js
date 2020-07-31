@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import ModalCatalog from "./ModalCatalog";
 
 const CatModal = (props) => {
-  const [description, setDescrition] = useState(props.description);
+  // const [description, setDescrition] = useState(props.description);
 
   return (
     <Modal

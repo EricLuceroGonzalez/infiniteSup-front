@@ -364,13 +364,15 @@ const ModalCatalog = (props) => {
 
         return item.items;
       }
+      return null
     });
+
     // console.log(categoryItems);
     // console.log(
     //   `categoryItems.length: ${categoryItems ? categoryItems.length : ""}`
     // );
     // console.log(`current: ${current}`);
-  }, [categoryItems, products, current, props]);
+  }, [props]);
 
   const renderProdacts = () => {
     if (categoryItems[current]) {
