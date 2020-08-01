@@ -69,23 +69,6 @@ const products = [
         domestic: true,
         industry: true,
       },
-      {
-        name: "Suavizante de tela",
-        image: jabonSuavizante,
-        description: [
-          "Suavizante de tela, con fragancia a bebé.",
-          "Cuenta con una formula humectante desarrollada para proteger la ropa, disminuir las arrugas para un fácil planchado y dejar la ropa más suave.",
-        ],
-        pros: [
-          "Es concentrado, fácil de manipular, aplicar, controlar.",
-          "Ideal para uso doméstico y cualquier tipo de industria.",
-        ],
-        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
-        fragance: true,
-        flavors: ["Almendra"],
-        domestic: true,
-        industry: false,
-      },
     ],
   },
   {
@@ -132,6 +115,23 @@ const products = [
         industry: false,
         flavors: ["Lavanda", "Floral", "Limón"],
       },
+      {
+        name: "Suavizante de tela",
+        image: jabonSuavizante,
+        description: [
+          "Suavizante de tela, con fragancia a bebé.",
+          "Cuenta con una formula humectante desarrollada para proteger la ropa, disminuir las arrugas para un fácil planchado y dejar la ropa más suave.",
+        ],
+        pros: [
+          "Es concentrado, fácil de manipular, aplicar, controlar.",
+          "Ideal para uso doméstico y cualquier tipo de industria.",
+        ],
+        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
+        fragance: true,
+        flavors: ["Almendra"],
+        domestic: true,
+        industry: false,
+      },
     ],
   },
   {
@@ -167,6 +167,20 @@ const products = [
         domestic: true,
         industry: true,
       },
+      {
+        name: "Limpiavidrios",
+        image: limpiaVidrios,
+        description: [
+          "Este producto está hecho con solventes orgánicos, puede ser utilizado en cualquier superficie de vidrio y ventanas.",
+          "Se actúa con rapidez sobre las superficies y no opaca.",
+          "Para utilizarlo solo debe rociar la superficie a limpiar y frotar suavemente con un paño limpio y seco.",
+        ],
+        pros: ["Cuenta con la presentación domestica e industrial."],
+        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
+        fragance: false,
+        domestic: true,
+        industry: true,
+      },
     ],
   },
   {
@@ -187,20 +201,6 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
         domestic: false,
-        industry: true,
-      },
-      {
-        name: "Limpiavidrios",
-        image: limpiaVidrios,
-        description: [
-          "Este producto está hecho con solventes orgánicos, puede ser utilizado en cualquier superficie de vidrio y ventanas.",
-          "Se actúa con rapidez sobre las superficies y no opaca.",
-          "Para utilizarlo solo debe rociar la superficie a limpiar y frotar suavemente con un paño limpio y seco.",
-        ],
-        pros: ["Cuenta con la presentación domestica e industrial."],
-        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
-        fragance: false,
-        domestic: true,
         industry: true,
       },
     ],
@@ -364,14 +364,8 @@ const ModalCatalog = (props) => {
 
         return item.items;
       }
-      return null
+      return null;
     });
-
-    // console.log(categoryItems);
-    // console.log(
-    //   `categoryItems.length: ${categoryItems ? categoryItems.length : ""}`
-    // );
-    // console.log(`current: ${current}`);
   }, [props]);
 
   const renderProdacts = () => {
@@ -389,14 +383,14 @@ const ModalCatalog = (props) => {
             }`}</p>
           </div>
           <div className="row d-flex catalogList">
-            <div className="col-12 col-sm-4 ">
+            <div className="mr-auto ml-auto col-10 col-sm-4 ">
               <img
-              className='productShowImg'
+                className="productShowImg"
                 src={categoryItems[current].image}
                 alt="product illustration"
               ></img>
             </div>
-            <div className="col-12 col-sm-8">
+            <div className="mr-auto ml-auto col-12 col-sm-8">
               <ul>
                 {categoryItems[current].description.map((item, i) => {
                   return <li key={i}>{item}</li>;

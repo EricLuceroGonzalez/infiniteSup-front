@@ -1,5 +1,5 @@
 .form-control {
-    margin: 2rem 0;
+    margin: 3em 0;
     border: none;
     background-color: rgba(220, 220, 220, 0.1);
     /* border: 1px dashed green; */
@@ -37,6 +37,7 @@
   .form-control--invalid label,
   .form-control--invalid p {
     color: #e92c42;
+    font-size: 0.65rem;
   }
   
   .form-control--invalid input,

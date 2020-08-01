@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
-
+import BackgroundSlideshow from "react-background-slideshow";
 import bg1m from "../../../media/bg/1-mobile.png";
 import bg2m from "../../../media/bg/2-mobile.png";
 import bg3m from "../../../media/bg/3-mobile.png";
@@ -38,19 +38,21 @@ const Landing = (props) => {
   const [bgImage, setBgImage] = useState("");
   const [bgTimer, setBgTimer] = useState(0);
   const [imageIn, setImageIn] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
+  const [isMounted, setIsMounted] = useState(true);
+  const [timeOut, setTimeOut] = useState();
+  const [timeOutB, setTimeOutB] = useState();
   useEffect(() => {
-    setIsMounted(true);
-    if (isMounted) {
+    let setTimeOut;
+    let setTimeOutB;
+    const setBackgroundImg = () => {
       if (bgTimer < 3) {
-        setTimeout(() => {
+        setTimeOut = setTimeout(() => {
           setImageIn(true);
           setBgTimer(bgTimer + 1);
         }, 6200);
         // setImageIn(false)
       } else {
-        setTimeout(() => {
+        setTimeOutB = setTimeout(() => {
           setImageIn(true);
           setBgTimer(0);
         }, 6200);
@@ -60,16 +62,21 @@ const Landing = (props) => {
       } else {
         setBgImage(bgMobile[bgTimer]);
       }
-    }
-  }, [width, bgTimer, bgImages, bgMobile, isMounted]);
-
-
-  useEffect(() => {
-    return () => {
-      console.log("perras!");
-      setIsMounted(false)
     };
-  }, []);
+
+    if (isMounted) {
+      console.log(`isMounted: ${isMounted}`);
+      setBackgroundImg();
+    }
+
+    return () => {
+      clearTimeout(setTimeOut);
+      clearTimeout(setTimeOutB);
+      console.log("gettin out at Home!");
+      // setIsMounted(false);
+    };
+  }, [width, bgTimer, bgImages, bgMobile, isMounted, timeOutB, timeOut]);
+
   const bgTransit = () => {
     // console.log(`Here bgTimer: ${bgTimer}`);
     // console.log(`Here imageIn: ${imageIn}`);

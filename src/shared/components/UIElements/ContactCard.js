@@ -12,7 +12,8 @@ const ContactCard = (props) => {
           <FontAwesomeIcon icon={props.iconName} />
         </div>
         <Link
-          style={{ textDecoration: "none" }}
+        className='link-Contact'
+          // style={{ textDecoration: "none" }}
           to={{ pathname: props.href }}
           target="_blank"
         >

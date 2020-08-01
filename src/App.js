@@ -15,6 +15,7 @@ import AboutUs from "./shared/components/App/AboutUs";
 import ContactUs from "./shared/components/App/ContactUs";
 import Navigation from "./shared/components/Navigation/Navigation";
 import Blog from "./shared/components/App/Blog";
+import ShowProducts from "./shared/components/App/showProducts";
 // import NavLinks from "./shared/components/Navigation/NavLinks";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             path="/blog/:id"
             render={(props) => <BlogEntry {...props} />}
           />
+          <Route path='/productos' component={ShowProducts}/>
           <Route path="/nosotros" component={AboutUs} />
           <Route path="/contacto" component={ContactUs} />
         </main>

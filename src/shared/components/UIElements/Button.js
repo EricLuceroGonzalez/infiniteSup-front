@@ -23,6 +23,7 @@ const Button = (props) => {
           props.inverse && "button--inverse"
         } ${props.whatsapp && "button--whatsapp"}`}
         href={props.href}
+        disabled={props.disabled}
       >
         {props.children}
       </a>

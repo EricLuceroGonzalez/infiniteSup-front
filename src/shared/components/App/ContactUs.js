@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   faPhone,
   faEnvelope,
-  faHeart,
   faPencilAlt,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
@@ -49,6 +48,7 @@ const ContactUs = () => {
           <ContactCard
             color="theLightBlue-b"
             iconName={faEnvelope}
+            href='mailto: ericlucero501@gmail.com'
             name="info@infinite-supplies.com"
           />
           <ContactCard

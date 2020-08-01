@@ -59,20 +59,6 @@ const products = [
         fragance: true,
         flavors: ["Almendra"],
       },
-      {
-        name: "Suavizante de tela",
-        description: [
-          "Suavizante de tela, con fragancia a bebé.",
-          "Cuenta con una formula humectante desarrollada para proteger la ropa, disminuir las arrugas para un fácil planchado y dejar la ropa más suave.",
-        ],
-        pros: [
-          "Es concentrado, fácil de manipular, aplicar, controlar.",
-          "Ideal para uso doméstico y cualquier tipo de industria.",
-        ],
-        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
-        fragance: true,
-        flavors: ["Almendra"],
-      },
     ],
   },
   {
@@ -114,6 +100,20 @@ const products = [
         fragance: true,
         flavors: ["Lavanda", "Floral", "Limón"],
       },
+      {
+        name: "Suavizante de tela",
+        description: [
+          "Suavizante de tela, con fragancia a bebé.",
+          "Cuenta con una formula humectante desarrollada para proteger la ropa, disminuir las arrugas para un fácil planchado y dejar la ropa más suave.",
+        ],
+        pros: [
+          "Es concentrado, fácil de manipular, aplicar, controlar.",
+          "Ideal para uso doméstico y cualquier tipo de industria.",
+        ],
+        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
+        fragance: true,
+        flavors: ["Almendra"],
+      },
     ],
   },
   {
@@ -144,6 +144,17 @@ const products = [
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
       },
+      {
+        name: "Limpiavidrios",
+        description: [
+          "Este producto está hecho con solventes orgánicos, puede ser utilizado en cualquier superficie de vidrio y ventanas.",
+          "Se actúa con rapidez sobre las superficies y no opaca.",
+          "Para utilizarlo solo debe rociar la superficie a limpiar y frotar suavemente con un paño limpio y seco.",
+        ],
+        pros: ["Cuenta con la presentación domestica e industrial."],
+        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
+        fragance: false,
+      },
     ],
   },
   {
@@ -161,17 +172,6 @@ const products = [
           "Ideal para cocinas industriales, restaurantes, hoteles etc.",
           "Es fácil de manipular, aplicar y controlar",
         ],
-        sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
-        fragance: false,
-      },
-      {
-        name: "Limpiavidrios",
-        description: [
-          "Este producto está hecho con solventes orgánicos, puede ser utilizado en cualquier superficie de vidrio y ventanas.",
-          "Se actúa con rapidez sobre las superficies y no opaca.",
-          "Para utilizarlo solo debe rociar la superficie a limpiar y frotar suavemente con un paño limpio y seco.",
-        ],
-        pros: ["Cuenta con la presentación domestica e industrial."],
         sizes: ["1 LT", "1 GL", "5 GL", "55 GL"],
         fragance: false,
       },
@@ -202,23 +202,28 @@ const products = [
 const ShowCategories = (props) => {
   const [categories, setCategories] = useState(products);
   const [caty, setCaty] = useState([]);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   useEffect(() => {
-    setIsMounted(true);
     const fetchCategories = async () => {
-      if (isMounted) {
-        try {
-          const responseData = await sendRequest(
-            `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
-          );
-          setCaty(responseData.categories);
-          console.log(responseData.categories);
-        } catch (err) {}
-      }
+      // if (isMounted) {
+      try {
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
+        );
+        setCaty(responseData.categories);
+        console.log(responseData.categories);
+        // setIsMounted(false)
+      } catch (err) {}
+      // }
     };
-    fetchCategories();
+    
+    if (isMounted) {
+      console.log(`isMounted: ${isMounted}`);
+      
+      fetchCategories();
+    }
   }, [sendRequest, isMounted]);
 
   useEffect(() => {
@@ -227,7 +232,7 @@ const ShowCategories = (props) => {
 
       setIsMounted(false);
     };
-  },[]);
+  }, []);
   const renderCats = () => {
     return categories.map((item, k) => {
       // console.log(item.source);
