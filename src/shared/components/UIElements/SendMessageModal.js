@@ -159,7 +159,7 @@ const SendMessageModal = (props) => {
           </div>
         </div>
         <div>
-          {!mailReturn ? (
+          {mailReturn ? (
             <div className="col-12 mr-auto ml-auto dancingmessage">
               Mensaje enviado{" "}
               <span role="img" aria-label="rocket" style={{ color: "#06d6a2" }}>
