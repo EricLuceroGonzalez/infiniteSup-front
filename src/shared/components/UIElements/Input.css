@@ -37,7 +37,7 @@
   .form-control--invalid label,
   .form-control--invalid p {
     color: #e92c42;
-    font-size: 0.65rem;
+    font-size: 0.45rem;
   }
   
   .form-control--invalid input,

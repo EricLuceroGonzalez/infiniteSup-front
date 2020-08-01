@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTimes,
   faUndoAlt,
   faEnvelope,
   faPaperPlane,
@@ -21,7 +20,7 @@ import Input from "./Input";
 import { Link, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "./LoadingSpinner";
-import './'
+import "./sendMessageModal.css";
 
 const SendMessageModal = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -124,6 +123,7 @@ const SendMessageModal = (props) => {
             </Button>
             {!isMail && (
               <Button
+                disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
                     ? `https://wa.me/+50769825076?text=%F0%9F%94%B4%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
@@ -160,18 +160,9 @@ const SendMessageModal = (props) => {
         </div>
         <div>
           {!mailReturn ? (
-            <div
-              className="col-12 mr-auto ml-auto"
-              style={{
-                color: "#0411a3",
-                border: "#0411a3",
-                fontFamily: "Montserrat-ExtraBold",
-                borderBottomColor: "#06d6a2",
-                fontSize: "2em",
-              }}
-            >
+            <div className="col-12 mr-auto ml-auto dancingmessage">
               Mensaje enviado{" "}
-              <span role="img" aria-label="rocket">
+              <span role="img" aria-label="rocket" style={{ color: "#06d6a2" }}>
                 📥
               </span>
             </div>
