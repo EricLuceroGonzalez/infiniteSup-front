@@ -5,22 +5,28 @@ import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="col-12 footer-bar d-flex">
-      <div className="col-12 col-sm-3">
-        <FontAwesomeIcon
-          icon={faHeart}
-          style={{ color: "rgb(236, 27, 12)", marginRight: "8px" }}
-        />
-        Infinite Supplies, S.A.
-      </div>
       <div className="col-6  col-sm-3">
-        <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "8px" }} />
-        infinitesuppliessa
+        <a
+          style={{ textDecoration: "none", color: "white" }}
+          href={"https://www.instagram.com/infinitesuppliessa/"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "8px" }} />
+          infinitesuppliessa
+        </a>
       </div>
-      <div className="col-6  col-sm-3">
+      <div
+        className="col-6  col-sm-3"
+        onClick={() => {
+          window.location.href = "tel:(+507) 6291-7954";
+        }}
+      >
         <FontAwesomeIcon
           icon={faPhoneAlt}
           style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
@@ -28,12 +34,19 @@ const Footer = () => {
         (+507) 6291-7954
       </div>
       <div className="col-6  col-sm-3">
-      <FontAwesomeIcon
-        icon={faPhoneAlt}
-        style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
-      />
-      (+507) 382- 8846/47
-    </div>
+        <FontAwesomeIcon
+          icon={faPhoneAlt}
+          style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
+        />
+        (+507) 382- 8846/47
+      </div>
+      <div className="col-12 col-sm-3">
+        <FontAwesomeIcon
+          icon={faHeart}
+          style={{ color: "rgb(236, 27, 12)", marginRight: "0px" }}
+        />
+        Infinite Supplies, S.A.
+      </div>
     </div>
   );
 };

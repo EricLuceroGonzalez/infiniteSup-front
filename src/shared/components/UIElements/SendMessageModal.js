@@ -26,7 +26,7 @@ const SendMessageModal = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [description, setDescrition] = useState(props.description);
   const [isMail, setIsMail] = useState(false);
-  const [mailReturn, setMailReturn] = useState();
+  const [mailReturn, setMailReturn] = useState(false);
   const history = useHistory();
 
   const [formState, inputHandler] = useForm(
@@ -48,15 +48,12 @@ const SendMessageModal = (props) => {
   );
 
   useEffect(() => {
-    console.log(props.setMedia);
-    console.log(isMail);
 
     if (props.setMedia === "email") {
       setIsMail(true);
     } else {
       setIsMail(false);
     }
-    console.log(formState.inputs);
     return () => {
       console.log("getting out!");
 
@@ -64,20 +61,12 @@ const SendMessageModal = (props) => {
     };
   }, [props, isMail, formState]);
 
-  const sendWhatsApp = () => {
-    console.log(`formState.inputs.message: ${formState.inputs.message.value}`);
-    let chatMessage = encodeURIComponent(formState.inputs.message.value);
-    console.log(chatMessage);
-  };
   const SendMessage = async (event) => {
     const formData = new FormData();
     console.log(`ismail: ${isMail}`);
     console.log(formState.inputs);
 
     if (isMail) {
-      // let messageName = formState.inputs.name.value;
-      // let messageEmail = formState.inputs.email.value;
-      // let messageBody = formState.inputs.message.value;
       formData.append("name", formState.inputs.name.value);
       formData.append("email", formState.inputs.email.value);
       formData.append("message", formState.inputs.message.value);
@@ -95,7 +84,7 @@ const SendMessageModal = (props) => {
           }),
           { "Content-Type": "application/json" }
         );
-        setMailReturn(sendMail.message);
+        setMailReturn(sendMail.emailSent);
         // setMailReturn()
       } catch (err) {
         console.log(`Error que xopa ahi loco, ${err}`);
@@ -123,6 +112,7 @@ const SendMessageModal = (props) => {
             </Button>
             {!isMail && (
               <Button
+              onClick={()=>setMailReturn('true')}
                 disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
