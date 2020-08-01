@@ -124,7 +124,7 @@ const SendMessageModal = (props) => {
               </Button>
             )}
             {isMail && (
-              <Button disabled={!formState.isValid} onClick={SendMessage}>
+              <Button disabled={!formState.isValid || mailReturn}  onClick={SendMessage}>
                 Enviar <FontAwesomeIcon icon={faPaperPlane} />
               </Button>
             )}
