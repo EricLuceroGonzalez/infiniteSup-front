@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
+
 import "./showProducts.css";
+
 const ShowProducts = () => {
   const [productList, setProductList] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -53,17 +55,21 @@ const ShowProducts = () => {
         return (
           <div key={k} className="col-12 col-sm-6 col-lg-6 row d-flex">
             <div
-              className="col-10 itemTitle categoryBox d-flex justify-content-start"
+              className="col-10 itemTitle justify-content-start align-items-center categoryBox d-flex"
               onClick={() => {
                 //  console.log(item.categoryName);
               }}
             >
-              <img
-                className="productShowImg"
-                src={item.fgLogo}
-                alt={`category ${item.categoryName} logo`}
-              ></img>
-              <div>{item.categoryName}</div>
+              <div className="col-4 col-sm-6 col-md-6 col-lg-3">
+                <img
+                  className="productShowImg"
+                  src={item.fgLogo}
+                  alt={`category ${item.categoryName} logo`}
+                ></img>
+              </div>
+              <div className="align-middle categoryName">
+                {item.categoryName}
+              </div>
             </div>
           </div>
         );
@@ -74,7 +80,7 @@ const ShowProducts = () => {
   return (
     <React.Fragment>
       {isLoading && <LoadingSpinner asOverlay />}
-      <h5 className="mt-5">Nuestros productos</h5>
+      <h5 className="mt-2">Nuestros productos</h5>
       <div className="row d-flex col-12 col-md-8 mr-auto ml-auto">
         {categories.length > 0 ? renderProducts() : "NaN "}
       </div>

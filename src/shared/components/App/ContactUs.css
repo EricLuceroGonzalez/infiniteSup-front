@@ -1,0 +1,15 @@
+.jumpingSign {
+  animation: jumpSign 1.7s ease-in-out 5;
+}
+
+@keyframes jumpSign {
+  0%,
+  100% {
+    transform: translate(0, -7px);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translate(0, 4px);
+  }
+}

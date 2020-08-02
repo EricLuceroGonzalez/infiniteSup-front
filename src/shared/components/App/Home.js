@@ -65,14 +65,12 @@ const Landing = (props) => {
     };
 
     if (isMounted) {
-      console.log(`isMounted: ${isMounted}`);
       setBackgroundImg();
     }
 
     return () => {
       clearTimeout(setTimeOut);
       clearTimeout(setTimeOutB);
-      console.log("gettin out at Home!");
       // setIsMounted(false);
     };
   }, [width, bgTimer, bgImages, bgMobile, isMounted, timeOutB, timeOut]);

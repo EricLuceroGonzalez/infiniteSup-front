@@ -1,8 +1,8 @@
 .form-control {
-    margin: 3em 0;
+    margin: 1rem 0;
     border: none;
     background-color: rgba(220, 220, 220, 0.1);
-    /* border: 1px dashed green; */
+    font-size: 0.75rem;
   }
   
   .form-control label,
@@ -14,9 +14,9 @@
   .form-control label {
     background-color: none;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: #0411a3;
-    font-family: Montserrat-BlackItalic;
+    font-family: Montserrat-ExtraBold;
   }
   
   .form-control input,

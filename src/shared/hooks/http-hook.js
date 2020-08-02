@@ -51,8 +51,6 @@ export const useHttpClient = () => {
 
   // Will render when hook mount/unmount - CLEAN UP
   useEffect(() => {
-    console.log('http-hook cleanup');
-    
     return () => {
       activeHttpRequest.current.forEach((abortCtrl) => abortCtrl.abort());
     };

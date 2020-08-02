@@ -213,23 +213,18 @@ const ShowCategories = (props) => {
           `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
         setCaty(responseData.categories);
-        console.log(responseData.categories);
         // setIsMounted(false)
       } catch (err) {}
       // }
     };
     
     if (isMounted) {
-      console.log(`isMounted: ${isMounted}`);
-      
       fetchCategories();
     }
   }, [sendRequest, isMounted]);
 
   useEffect(() => {
     return () => {
-      console.log("getting out!");
-
       setIsMounted(false);
     };
   }, []);

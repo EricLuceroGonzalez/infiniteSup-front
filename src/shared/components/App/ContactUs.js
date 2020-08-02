@@ -87,7 +87,7 @@ const ContactUs = () => {
         </div>
         <div className="col-12 col-sm-4 mt-3">
           <div className="col-12">
-            <FontAwesomeIcon color="#DD4B3E" icon={faMapMarkerAlt} />
+            <FontAwesomeIcon className='jumpingSign' color="#DD4B3E" icon={faMapMarkerAlt} />
             {"  "}
             Ubicación
           </div>

@@ -17,18 +17,22 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faInstagram} style={{ marginRight: "8px" }} />
-          infinitesuppliessa
+          <FontAwesomeIcon
+            icon={faInstagram}
+            style={{ marginRight: "8px", color: "#06d6a2" }}
+          />
+          infinitesupplies<span className='theLightBlue-b'>sa</span>
         </a>
       </div>
       <div
-        className="col-6  col-sm-3"
+        className="col-6 col-sm-3 hoverLink"
         onClick={() => {
           window.location.href = "tel:(+507) 6291-7954";
         }}
       >
         <FontAwesomeIcon
           icon={faPhoneAlt}
+          className='iconVibrate'
           style={{ color: "rgb(19, 245, 113)", marginRight: "8px" }}
         />
         (+507) 6291-7954

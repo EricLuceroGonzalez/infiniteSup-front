@@ -48,7 +48,6 @@ const SendMessageModal = (props) => {
   );
 
   useEffect(() => {
-
     if (props.setMedia === "email") {
       setIsMail(true);
     } else {
@@ -112,7 +111,7 @@ const SendMessageModal = (props) => {
             </Button>
             {!isMail && (
               <Button
-              onClick={()=>setMailReturn('true')}
+                onClick={() => setMailReturn("true")}
                 disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
@@ -124,31 +123,33 @@ const SendMessageModal = (props) => {
               </Button>
             )}
             {isMail && (
-              <Button disabled={!formState.isValid || mailReturn}  onClick={SendMessage}>
+              <Button
+                disabled={!formState.isValid || mailReturn}
+                onClick={SendMessage}
+              >
                 Enviar <FontAwesomeIcon icon={faPaperPlane} />
               </Button>
             )}
           </div>
         }
       >
-        <div className="col-12 col-sm-8 mb-3">
-          <div className="row d-flex col-12">
-            <div className="col-2">
-              {" "}
-              <FontAwesomeIcon
-                style={{ fontSize: "2.35rem" }}
-                className="theAqua"
-                icon={isMail ? faEnvelope : faWhatsapp}
-              />
-            </div>
-            <div className="col-10">
-              {" "}
-              Envía un mensaje a nuestro{" "}
-              {isMail ? "correo electrónico:" : "WhatsApp:"}
-            </div>
+        <div className="row d-flex col-12 col-lg-6 mr-auto ml-auto">
+          <div className="col-2">
+            {" "}
+            <FontAwesomeIcon
+              style={{ fontSize: "1.75rem" }}
+              className="theAqua"
+              icon={isMail ? faEnvelope : faWhatsapp}
+            />
+          </div>
+          <div className="col-10 instructMessage">
+            {" "}
+            Envía un mensaje a nuestro{" "}
+            {isMail ? "correo electrónico:" : "WhatsApp:"}
           </div>
         </div>
-        <div>
+
+        <div className="formBox col-12 col-lg-8 mr-auto ml-auto">
           {mailReturn ? (
             <div className="col-12 mr-auto ml-auto dancingmessage">
               Mensaje enviado{" "}
