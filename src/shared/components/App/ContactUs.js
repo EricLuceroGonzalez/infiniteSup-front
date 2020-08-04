@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   faPhone,
   faEnvelope,
@@ -18,6 +18,9 @@ const ContactUs = () => {
   const [showModal, setShowModal] = useState(false);
   const [setMedia, setSetMedia] = useState("");
 
+  useEffect(() => {
+    document.title = "Infinite Supplies | Contáctenos";
+  }, []);
   const errorHandler = () => {
     setShowModal(false);
   };
@@ -48,7 +51,7 @@ const ContactUs = () => {
           <ContactCard
             color="theLightBlue-b"
             iconName={faEnvelope}
-            href='mailto: ericlucero501@gmail.com'
+            href="mailto: ericlucero501@gmail.com"
             name="info@infinite-supplies.com"
           />
           <ContactCard
@@ -87,7 +90,11 @@ const ContactUs = () => {
         </div>
         <div className="col-12 col-sm-4 mt-3">
           <div className="col-12">
-            <FontAwesomeIcon className='jumpingSign' color="#DD4B3E" icon={faMapMarkerAlt} />
+            <FontAwesomeIcon
+              className="jumpingSign"
+              color="#DD4B3E"
+              icon={faMapMarkerAlt}
+            />
             {"  "}
             Ubicación
           </div>

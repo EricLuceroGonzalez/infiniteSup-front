@@ -64,8 +64,6 @@
 .button--float {
   text-decoration: none;
   position: fixed;
-  /* width: 60px;
-    height: 60px; */
   font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
   bottom: 40px;
@@ -74,9 +72,12 @@
   color: #fff;
   border-radius: 90px;
   text-align: center;
-  /* box-shadow: 2px 2px 3px #999; */
   margin: auto;
   animation: nudge 3s ease infinite;
+}
+
+.button--float{
+  cursor: pointer;
 }
 
 .animate-btn {

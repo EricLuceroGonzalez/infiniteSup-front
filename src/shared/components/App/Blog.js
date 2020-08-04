@@ -34,10 +34,11 @@ const Blog = () => {
   const [blogEntries, setBlogEntries] = useState([]);
 
   useEffect(() => {
+    document.title = 'Infinite Supplies | Blog'
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/content/getBlog`
+          `${process.env.REACT_APP_LOCALHOST_URL}/content/getBlog`
         );
         setBlogEntries(responseData.blogContent);
       } catch (err) {}
@@ -57,7 +58,7 @@ const Blog = () => {
           <div className="row d-flex col-10 col-md-6 mr-auto ml-auto bordeC entryBox">
             <p className="entryTitle col-12">{item.title}</p>
             <div className="col-10 col-sm-4">
-              <p className="entryDate"> {moment(item.date).format("LL")}</p>
+              <p className="entryDate"> {moment(item.creationDate).format("LL")}</p>
               <p className="para"> {item.resumen}</p>
             </div>
             {width > "500" ? (

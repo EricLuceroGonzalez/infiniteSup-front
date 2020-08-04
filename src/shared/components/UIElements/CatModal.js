@@ -16,7 +16,7 @@ const CatModal = (props) => {
           <div className="col-12 row d-flex align-items-center">
             <div className="col-4 col-md-2">
               <img
-                style={{maxWidth:'45px'}}
+                style={{ maxWidth: "45px" }}
                 src={props.logo}
                 alt="Card cap"
               />
@@ -38,17 +38,8 @@ const CatModal = (props) => {
         )
       }
       show={props.show}
-      // footer={
-      //   <div>
-      //     <Button onClick={props.onClear}>
-      //       {" "}
-      //       <FontAwesomeIcon icon={faUndoAlt} />
-      //     </Button>
-      //     <Button onClick={props.onClear}>Saber más</Button>
-      //   </div>
-      // }
     >
-      <ModalCatalog category={props.title} />
+      <ModalCatalog category={props.title} products={props.products}/>
     </Modal>
   );
 };

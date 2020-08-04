@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Categories.css";
 import CatModal from "../UIElements/CatModal";
@@ -15,30 +15,28 @@ const CategoryItem = (props) => {
   };
 
   return (
-    <div
-      className="img-box img-hover-zoom col-6 col-sm-4 col-md-2"
-    >
-        <CatModal
+    <div className="img-box img-hover-zoom col-6 col-sm-4 col-md-2">
+      <CatModal
         show={showModal}
         closeModal={() => openCloseModal()}
         title={props.category}
-        prodName={props.name}
-        items={props.items}
-        logo={props.imgSource}
-        description={props.description}
-        pros={props.pros}
-        sizes={props.sizes}
-        fragance={props.frag}
-        message={props.category}
+        products={props.products}
+        // prodName={props.name}
+        // items={props.items}
+        // logo={props.imgSource}
+        // description={props.description}
+        // pros={props.pros}
+        // sizes={props.sizes}
+        // fragance={props.frag}
+        // message={props.category}
         onClear={errorHandler}
       />
 
       <img
-      onClick={() => {
-        setShowModal(!showModal);
-      }}
-
-        className="card-img-top img-restr"
+        onClick={() => {
+          setShowModal(!showModal);
+        }}
+        className="card-img-top img-restr homeLogo"
         src={props.logo}
         alt="Card cap"
       />

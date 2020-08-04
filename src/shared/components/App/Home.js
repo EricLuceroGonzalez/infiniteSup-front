@@ -11,10 +11,11 @@ import bg3b from "../../../media/bg/3-1920x1080.png";
 import bg4b from "../../../media/bg/4-1980x1080.png";
 // <BackgroundSlideshow images={[imageUrl]} />
 
-import ShowCategories from "./ShowCategories";
+import ShowCategories from "./products/ShowCategories";
 import ShowBlog from "./ShowBlog";
 import "./Home.css";
 import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
 
 const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -42,6 +43,7 @@ const Landing = (props) => {
   const [timeOut, setTimeOut] = useState();
   const [timeOutB, setTimeOutB] = useState();
   useEffect(() => {
+    document.title = "Infinite Supplies | Bienvenido";
     let setTimeOut;
     let setTimeOutB;
     const setBackgroundImg = () => {
@@ -95,11 +97,15 @@ const Landing = (props) => {
     <div className="col-12 flex-container">
       {bgTransit()}
       <div>
-        <div className="mt-5 category">Productos</div>
+        <div className="mt-5 category">
+          <Link to={"/productos"}>Productos</Link>
+        </div>
         <ShowCategories />
       </div>
       <div>
-        <div className="mt-5 category">Blog</div>
+        <div className="mt-5 category">
+          <Link to={"/blog"}>Blog</Link>
+        </div>
         <ShowBlog />
       </div>
     </div>

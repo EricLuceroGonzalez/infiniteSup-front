@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useHttpClient } from "../../hooks/http-hook";
-import LoadingSpinner from "../UIElements/LoadingSpinner";
+import { useHttpClient } from "../../../hooks/http-hook";
+import LoadingSpinner from "../../UIElements/LoadingSpinner";
 
 import "./showProducts.css";
 
@@ -10,11 +10,12 @@ const ShowProducts = () => {
   const [isMounted, setIsMounted] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   useEffect(() => {
+    document.title = "Infinite Supplies | Nuestros Productos";
     const fetchCategories = async () => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
+          `${process.env.REACT_APP_LOCALHOST_URL}/products/getCategories`
         );
         setCategories(responseData.categories);
         //  console.log(responseData.categories);
@@ -27,7 +28,7 @@ const ShowProducts = () => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/products/getProducts`
+          `${process.env.REACT_APP_LOCALHOST_URL}/products/getProducts`
         );
         setProductList(responseData.products);
         //  console.log(responseData.products);

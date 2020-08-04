@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/es";
 
-import blogImage1 from "../../../media/donaciones.jpeg";
-import blogImage2 from "../../../media/bitmap2.png";
-import blogImage3 from "../../../media/navlogo.png";
 import { useHistory } from "react-router-dom";
 import "./TextStyle.css";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -22,43 +19,42 @@ const BlogEntry = (props) => {
   const history = useHistory();
 
   useEffect(() => {
-   
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/content/getBlog/${props.match.params.id}`
+          `${process.env.REACT_APP_LOCALHOST_URL}/content/getBlog/${props.match.params.id}`
         );
         setBlogEntry(responseData.blogContent);
       } catch (err) {}
     };
 
-    fecthBlog()   
+    fecthBlog();
   }, [sendRequest, props]);
 
   const getEntry = () => {
-        return (
-          <div className="col-12 mr-auto ml-auto">
-            <div className="col-12 mr-auto ml-auto">
-              <h2>{blogEntry.title}</h2>
-              <p className="entryDate"> {moment(blogEntry.date).format("LL")}</p>
-              <div>
-                <p className="itemTitle">{blogEntry.abstract}</p>
-              </div>
-            </div>
-            <div className="mr-auto ml-auto col-12 col-md-10 col-lg-7">
-              <img
-                width="90%"
-                src={blogEntry.image}
-                alt="brand logo as footer"
-              ></img>
-              <p className="para">{blogEntry.textContent}</p>
-            </div>
+    return (
+      <div className="col-12 mr-auto ml-auto">
+        <div className="col-12 mr-auto ml-auto">
+          <h2>{blogEntry.title}</h2>
+          <p className="entryDate"> {moment(blogEntry.creationDate).format("LL")}</p>
+          <div>
+            <p className="itemTitle">{blogEntry.abstract}</p>
           </div>
-        );
-      }
+        </div>
+        <div className="mr-auto ml-auto col-12 col-md-10 col-lg-7">
+          <img
+            width="90%"
+            src={blogEntry.image}
+            alt="brand logo as footer"
+          ></img>
+          <p className="para">{blogEntry.textContent}</p>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="mt-3">
-    {isLoading && <LoadingSpinner asOverlay/>}
+      {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>
       <Button floating toBack={"/blog"}>

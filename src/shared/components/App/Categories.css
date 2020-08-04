@@ -16,7 +16,9 @@
   /* border: 1px solid red; */
   padding: 20px;
 }
-
+.homeLogo{
+  cursor: pointer;
+}
 .img-text {
   font-family: Montserrat-Bold;
   font-size: 0.95em;
