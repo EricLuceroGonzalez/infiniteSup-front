@@ -22,7 +22,7 @@ const BlogEntry = (props) => {
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/content/getBlog/${props.match.params.id}`
+          `${process.env.REACT_APP_BACKEND_URL}/content/getBlog/${props.match.params.id}`
         );
         setBlogEntry(responseData.blogContent);
       } catch (err) {}

@@ -16,7 +16,7 @@ const ShowBlog = (props) => {
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/content/getBlog`
+          `${process.env.REACT_APP_BACKEND_URL}/content/getBlog`
         );
         setBlogEntries(responseData.blogContent);
       } catch (err) {}

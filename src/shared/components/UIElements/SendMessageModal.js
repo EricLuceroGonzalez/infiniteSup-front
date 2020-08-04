@@ -74,7 +74,7 @@ const SendMessageModal = (props) => {
       // event.preventDefault();
       try {
         const sendMail = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/mailing/send`,
+          `${process.env.REACT_APP_BACKEND_URL}/mailing/send`,
           "POST",
           JSON.stringify({
             message: formState.inputs.message.value,

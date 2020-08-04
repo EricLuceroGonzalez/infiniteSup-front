@@ -15,7 +15,7 @@ const ShowProducts = () => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/products/getCategories`
+          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
         setCategories(responseData.categories);
         //  console.log(responseData.categories);
@@ -28,7 +28,7 @@ const ShowProducts = () => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/products/getProducts`
+          `${process.env.REACT_APP_BACKEND_URL}/products/getProducts`
         );
         setProductList(responseData.products);
         //  console.log(responseData.products);

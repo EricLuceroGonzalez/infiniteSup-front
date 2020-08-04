@@ -29,7 +29,7 @@ const ShowCategories = (props) => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/products/getCategories`
+          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
         setCategories(responseData.categories);
         //  console.log(responseData.categories);
@@ -50,7 +50,7 @@ const ShowCategories = (props) => {
       // if (isMounted) {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_LOCALHOST_URL}/products/getCategories`
+          `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
         setCaty(responseData.categories);
         // setIsMounted(false)
