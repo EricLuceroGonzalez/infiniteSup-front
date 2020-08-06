@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
-import { Helmet } from "react-helmet";
 
 const ShowBlog = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -67,13 +66,6 @@ const ShowBlog = (props) => {
   };
   return (
     <React.Fragment>
-      <Helmet>
-        <title>Infinite Supplies | Blog</title>
-        <meta
-          name="description"
-          content="Los mejores productos de limpieza para la industria y el hogar, desinfectantes, detergentes e insumos. Nuestro blog con las mejores recomendaciones"
-        />
-      </Helmet>
       {isLoading && <LoadingSpinner asOverlay />}
       <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
         {showBlogCars()}
