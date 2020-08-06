@@ -10,7 +10,7 @@ import ErrorModal from "../../UIElements/ErrorModal";
 const ShowCategories = (props) => {
   const [categories, setCategories] = useState([]);
   const [isMounted] = useState(true);
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { isLoading, sendRequest } = useHttpClient();
   useEffect(() => {
     document.title = "Infinite Supplies | Nuestros Productos";
     const fetchCategories = async () => {
