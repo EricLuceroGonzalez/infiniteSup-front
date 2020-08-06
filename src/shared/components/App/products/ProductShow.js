@@ -37,7 +37,7 @@ const ProductShow = (props) => {
         </div>
         <div
           style={{ textAlign: "left" }}
-          className="align-middle categoryBox"
+          className="align-middle categoryNameItem"
         >
           {props.category}
         </div>
