@@ -18,6 +18,7 @@ const ShowCategories = () => {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
+        console.log(responseData.categories);
         setCategories(responseData.categories);
         // setIsMounted(false)
       } catch (err) {}
