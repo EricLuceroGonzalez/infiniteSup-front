@@ -20,7 +20,6 @@ const ShowCategories = (props) => {
           `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
         setCategories(responseData.categories);
-        //  console.log(responseData.categories);
         // setIsMounted(false)
       } catch (err) {}
       // }
