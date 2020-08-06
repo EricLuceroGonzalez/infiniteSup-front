@@ -88,7 +88,6 @@ const Blog = () => {
   };
   return (
     <div className="mt-3">
-      <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>

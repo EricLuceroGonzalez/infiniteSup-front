@@ -45,12 +45,9 @@ const ShowCategories = (props) => {
       );
     });
   };
-  const errorHandler = () => {
-    clearError();
-  };
+
   return (
     <React.Fragment>
-    <ErrorModal error={error} onClear={errorHandler} />
     {isLoading && <LoadingSpinner asOverlay />}
       <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
         {renderCats()}
