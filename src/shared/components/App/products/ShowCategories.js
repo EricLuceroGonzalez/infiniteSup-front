@@ -8,7 +8,7 @@ import LoadingSpinner from "../../UIElements/LoadingSpinner";
 
 const ShowCategories = () => {
   const [categories, setCategories] = useState([]);
-  const [isMounted] = useState(true);
+  const [isMounted, setIsMounted] = useState(true);
   const { isLoading, sendRequest } = useHttpClient();
   useEffect(() => {
     document.title = "Infinite Supplies | Nuestros Productos";
@@ -32,7 +32,7 @@ const ShowCategories = () => {
   }, [sendRequest, isMounted]);
 
   const renderCats = () => {
-    return categories.map((item, k) => {    
+    return categories.map((item, k) => {
       return (
         <CategoryItem
           key={k}
@@ -46,7 +46,7 @@ const ShowCategories = () => {
 
   return (
     <React.Fragment>
-    {isLoading && <LoadingSpinner asOverlay />}
+      {isLoading && <LoadingSpinner asOverlay />}
       <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
         {renderCats()}
       </div>
