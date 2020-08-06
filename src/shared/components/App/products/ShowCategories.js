@@ -11,7 +11,6 @@ const ShowCategories = () => {
   const [isMounted, setIsMounted] = useState(true);
   const { isLoading, sendRequest } = useHttpClient();
   useEffect(() => {
-    document.title = "Infinite Supplies | Nuestros Productos";
     const fetchCategories = async () => {
       // if (isMounted) {
       try {

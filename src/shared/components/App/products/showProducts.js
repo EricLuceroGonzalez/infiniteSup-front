@@ -5,6 +5,7 @@ import LoadingSpinner from "../../UIElements/LoadingSpinner";
 import ProductShow from "./ProductShow";
 import "./showProducts.css";
 import "../TextStyle.css";
+import { Helmet } from "react-helmet";
 
 const ShowProducts = () => {
   const [categories, setCategories] = useState([]);
@@ -12,13 +13,12 @@ const ShowProducts = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   useEffect(() => {
-    document.title = "Infinite Supplies | Nuestros Productos";
     const fetchCategories = async () => {
       try {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
-        setCategories(responseData.categories);       
+        setCategories(responseData.categories);
       } catch (err) {}
     };
 
@@ -42,6 +42,13 @@ const ShowProducts = () => {
   };
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Infinite Supplies | Nuestros Productos</title>
+        <meta
+          name="description"
+          content="Los mejores productos de limpieza para la industria y el hogar, desinfectantes, detergentes e insumos. Escobas, trapeadores y mas."
+        />
+      </Helmet>
       {isLoading && <LoadingSpinner asOverlay />}
       <h5 className="mt-5">Nuestros productos</h5>
       <div className="row d-flex col-12 col-md-8 mr-auto ml-auto">

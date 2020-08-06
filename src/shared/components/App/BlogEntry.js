@@ -10,6 +10,7 @@ import logo_small from "../../../media/logo_sm_cut.png";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
 import ErrorModal from "../UIElements/ErrorModal";
+import { Helmet } from "react-helmet";
 
 const BlogEntry = (props) => {
   const [blogEntry, setBlogEntry] = useState([]);
@@ -33,7 +34,10 @@ const BlogEntry = (props) => {
       <div className="col-12 mr-auto ml-auto">
         <div className="col-12 mr-auto ml-auto">
           <h2>{blogEntry.title}</h2>
-          <p className="entryDate"> {moment(blogEntry.creationDate).format("LL")}</p>
+          <p className="entryDate">
+            {" "}
+            {moment(blogEntry.creationDate).format("LL")}
+          </p>
           <div>
             <p className="itemTitle">{blogEntry.abstract}</p>
           </div>
@@ -49,12 +53,17 @@ const BlogEntry = (props) => {
       </div>
     );
   };
-  const errorHandler = () => {
-    clearError();
-  };
-  
   return (
     <div className="mt-3">
+      <Helmet>
+        <title>{`Infinite Supplies | ${
+          blogEntry.title ? blogEntry.title : "Blog"
+        }`}</title>
+        <meta
+          name="description"
+          content="Los mejores productos de limpieza para la industria y el hogar, desinfectantes, detergentes e insumos. Nuestro blog con las mejores recomendaciones"
+        />
+      </Helmet>
       {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>

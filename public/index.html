@@ -2,17 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Productos de limpieza para la industria y el hogar. Desinfectantes, limpiadores multiusos, detergente, limpiador de vidrios, escobas y todos los insumos de limpieza que necesitas."
-    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <meta name="theme-color" content="#000000" />
+    <!-- <meta
+      name="description"
+      content="Productos de limpieza para la industria y el hogar. Desinfectantes, detergentes, limpiavidrios, escobas y todos los insumos de limpieza que necesitas."
+    /> -->
+    <!-- Control the behavior of search engine crawling and indexing -->
+    <meta name="robots" content="index,follow" />
+    <!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow" />
+    <!-- Google Specific -->
+    <!-- Tells Google not to provide a translation for this document -->
+    <meta name="google" content="notranslate" />
+    <!-- FACEBOOK Open Graph -->
+    <meta property="og:url" content="https://infinite-supplies.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Infinite Supplies" />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dcvnw6hvt/image/upload/v1596351802/InfiniteSupplies/identity/navlogo_dpncuq.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Infinite Supplies S.A. bubble logo"
+    />
+    <meta
+      property="og:description"
+      content="Productos de limpieza para la industria y el hogar. Desinfectantes, detergentes, limpiavidrios, escobas y todos los insumos de limpieza que necesitas."
+    />
+    <meta property="og:site_name" content="Infinite Supplies" />
+    <meta property="og:locale" content="es_PA" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -27,7 +53,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Infinite Supplies</title>
     <!-- Get the access to API key - Google MAps -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_API_GOOGLE%"

@@ -8,8 +8,6 @@ const ProductDashboard = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   useEffect(() => {
-    document.title = "Infinite Supplies | DASHBOARD";
-
     const fetchProducts = async () => {
       // if (isMounted) {
       try {

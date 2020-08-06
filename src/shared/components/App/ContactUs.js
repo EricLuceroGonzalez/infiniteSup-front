@@ -14,14 +14,12 @@ import Button from "../UIElements/Button";
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import SendMessageModal from "../UIElements/SendMessageModal";
 import logo_small from "../../../media/logo_sm_cut.png";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
   const [showModal, setShowModal] = useState(false);
   const [setMedia, setSetMedia] = useState("");
 
-  useEffect(() => {
-    document.title = "Infinite Supplies | Contáctenos";
-  }, []);
   const errorHandler = () => {
     setShowModal(false);
   };
@@ -33,6 +31,13 @@ const ContactUs = () => {
 
   return (
     <React.Fragment>
+    <Helmet>
+        <title>Infinite Supplies | Contáctanos</title>
+        <meta
+          name="description"
+          content="Los mejores productos de limpieza para la industria y el hogar. Contáctanos via email o whatsApp en esta pagina."
+        />
+      </Helmet>
       <SendMessageModal
         show={showModal}
         setMedia={setMedia}

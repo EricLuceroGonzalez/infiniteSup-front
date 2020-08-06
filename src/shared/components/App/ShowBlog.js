@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
-import ErrorModal from "../UIElements/ErrorModal";
+import { Helmet } from "react-helmet";
+
 const ShowBlog = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [blogEntries, setBlogEntries] = useState([]);
@@ -32,22 +33,22 @@ const ShowBlog = (props) => {
 
   const showBlogCars = () => {
     return blogEntries.map((item, k) => {
-      // console.log(item.title);
-
-      return(
+      return (
         <Link
-        key={k}
-        style={{ textDecoration: "none" }}
-        className="row d-flex col-12 col-md-3 mr-auto ml-auto entryBox"
-        to={`/blog/${item._id}`}
+          key={k}
+          style={{ textDecoration: "none" }}
+          className="row d-flex col-12 col-md-3 mr-auto ml-auto entryBox"
+          to={`/blog/${item._id}`}
         >
-
           <div className="col-12 d-flex align-items-end">
             <img className="entryImg" src={item.image} alt="blog entry"></img>
           </div>
           <p className="mt-4 entryTitle col-12">{item.title}</p>
           <div className="col-10 col-sm-12">
-            <p className="entryDate"> {moment(item.creationDate).format("LL")}</p>
+            <p className="entryDate">
+              {" "}
+              {moment(item.creationDate).format("LL")}
+            </p>
             <p className="para"> {item.abstract}</p>
             <div className="entryDate">
               Leer mas{" "}
@@ -66,7 +67,14 @@ const ShowBlog = (props) => {
   };
   return (
     <React.Fragment>
-    {isLoading && <LoadingSpinner asOverlay />}
+      <Helmet>
+        <title>Infinite Supplies | Blog</title>
+        <meta
+          name="description"
+          content="Los mejores productos de limpieza para la industria y el hogar, desinfectantes, detergentes e insumos. Nuestro blog con las mejores recomendaciones"
+        />
+      </Helmet>
+      {isLoading && <LoadingSpinner asOverlay />}
       <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
         {showBlogCars()}
       </div>

@@ -11,7 +11,6 @@ const Dashboard = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    document.title = "Infinite Supplies | DASHBOARD";
     const fetchCategories = async () => {
       // if (isMounted) {
       try {

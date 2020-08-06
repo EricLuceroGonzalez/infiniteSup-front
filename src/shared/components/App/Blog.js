@@ -10,6 +10,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
 import ErrorModal from "../UIElements/ErrorModal";
+import { Helmet } from "react-helmet";
 
 const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -31,7 +32,6 @@ const Blog = () => {
   const [blogEntries, setBlogEntries] = useState([]);
 
   useEffect(() => {
-    document.title = "Infinite Supplies | Blog";
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
@@ -88,6 +88,13 @@ const Blog = () => {
   };
   return (
     <div className="mt-3">
+    <Helmet>
+    <title>Infinite Supplies | Blog</title>
+    <meta
+      name="description"
+      content="Los mejores productos de limpieza para la industria y el hogar, desinfectantes, detergentes e insumos. Nuestro blog con las mejores recomendaciones"
+    />
+    </Helmet>
       {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>

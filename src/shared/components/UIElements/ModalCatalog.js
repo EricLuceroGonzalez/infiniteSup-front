@@ -11,6 +11,7 @@ import {
 import "./ModalCatalog.css";
 import Button from "./Button";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { Helmet } from "react-helmet";
 
 const ModalCatalog = (props) => {
   const [productItem] = useState(props.products);
@@ -20,6 +21,9 @@ const ModalCatalog = (props) => {
     if (productItem[current]) {
       return (
         <div>
+        <Helmet>
+        <title>{`Infinite Supplies | ${productItem[current].name}`}</title>
+        </Helmet>
           <div className="d-flex col-10">
             <p className="col-10 itemTitle thePurple">
               {productItem[current].name}
@@ -108,7 +112,7 @@ const ModalCatalog = (props) => {
             </div>
           </div>
           <div className="d-flex justify-content-end mb-1">
-          <div className='iVibrate'>
+          <div className='iVibrate mb-2'>
             <Button
               inverse
               href={`https://wa.me/+50769825076?text=%F0%9F%94%B5%20INFINITE-SUPPLIES.COM%0AHola%2C%20me%20interesa%20este%20producto%3A%20%0A%0A${productItem[current].name}%20%0A%0A`}
@@ -123,6 +127,7 @@ const ModalCatalog = (props) => {
   };
   return (
     <div>
+   
       {renderProdacts()}
 
       {productItem.length > 1 ? (

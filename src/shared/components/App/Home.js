@@ -15,6 +15,7 @@ import ShowBlog from "./ShowBlog";
 import "./Home.css";
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -43,7 +44,6 @@ const Landing = (props) => {
   const [timeOutB] = useState();
 
   useEffect(() => {
-    document.title = "Infinite Supplies | Bienvenido!";   
     let setTimeOut;
     let setTimeOutB;
     const setBackgroundImg = () => {
@@ -94,21 +94,34 @@ const Landing = (props) => {
   };
 
   return (
-    <div className="col-12 flex-container">
-      {bgTransit()}
-      <div>
-        <div className='mt-5'>
-          <Link className="category" to={"/productos"}>Productos</Link>
+    <React.Fragment>
+      <Helmet>
+        <title>Infinite Supplies | Bienvenido!</title>
+        <meta
+          name="description"
+          content="Productos de limpieza para la industria y el hogar. Desinfectantes, detergentes, limpiavidrios, escobas y todos los insumos de limpieza que necesitas."
+        />
+      </Helmet>
+      <div className="col-12 flex-container">
+        {bgTransit()}
+        <div>
+          <div className="mt-5">
+            <Link className="category" to={"/productos"}>
+              Productos
+            </Link>
+          </div>
+          <ShowCategories />
         </div>
-        <ShowCategories />
-      </div>
-      <div>
-        <div className="mt-5">
-          <Link className="category" to={"/blog"}>Blog</Link>
+        <div>
+          <div className="mt-5">
+            <Link className="category" to={"/blog"}>
+              Blog
+            </Link>
+          </div>
+          <ShowBlog />
         </div>
-        <ShowBlog />
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

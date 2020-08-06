@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
 import "./TextStyle.css";
+import { Helmet } from "react-helmet";
 
 const AboutUs = () => {
-  document.title = "Infinite Supplies | Nosotros";
   useEffect(() => {
     if (!window.google) {
       console.log("------------------  no window.google==========");
@@ -17,6 +17,13 @@ const AboutUs = () => {
   // };
   return (
     <React.Fragment>
+    <Helmet>
+    <title>Infinite Supplies | Nosotros</title>
+    <meta
+      name="description"
+      content="Productos de limpieza para la industria y el hogar. Estamos para solucionar sus necesidades de limpieza, desde uso personal hasta indutrial"
+    />
+    </Helmet>
       <div className="fonts col-12 mr-auto ml-auto pt-2">
         <h5>MISIÓN</h5>
         <p className="para col-12 col-sm-6">
@@ -47,10 +54,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-// <ul className="para col-12 col-sm-6">
-// <li>CALIDAD</li>
-// <li>RESPONSABLE CON EL AMBIENTE</li>
-// <li>CONFIANZA</li>
-// <li>AGILIDAD</li>
-// </ul>
