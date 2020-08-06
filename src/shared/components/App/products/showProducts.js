@@ -45,8 +45,6 @@ const ShowProducts = () => {
   };
   return (
     <React.Fragment>
-
-    <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && <LoadingSpinner asOverlay />}
       <h5 className="mt-2">Nuestros productos</h5>
       <div className="row d-flex col-12 col-md-8 mr-auto ml-auto">
