@@ -47,6 +47,7 @@ const Footer = () => {
           icon={faHeart}
           style={{ color: "rgb(236, 27, 12)", marginRight: "0px" }}
         />
+      {" "}
         Infinite Supplies, S.A.
       </div>
     </div>

@@ -24,7 +24,8 @@ const ContactCard = (props) => {
     );
   } else {
     return (
-      <div className="row flex cardBorder">
+      <div className="row flex cardBorder"
+      onClick={props.onClick}>
         <div className={`mr-3 ${props.color}`}>
           <FontAwesomeIcon icon={props.iconName} />
         </div>

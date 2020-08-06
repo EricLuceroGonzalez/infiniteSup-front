@@ -97,14 +97,14 @@ const Landing = (props) => {
     <div className="col-12 flex-container">
       {bgTransit()}
       <div>
-        <div className="mt-5 category">
-          <Link to={"/productos"}>Productos</Link>
+        <div className='mt-5'>
+          <Link className="category" to={"/productos"}>Productos</Link>
         </div>
         <ShowCategories />
       </div>
       <div>
-        <div className="mt-5 category">
-          <Link to={"/blog"}>Blog</Link>
+        <div className="mt-5">
+          <Link className="category" to={"/blog"}>Blog</Link>
         </div>
         <ShowBlog />
       </div>

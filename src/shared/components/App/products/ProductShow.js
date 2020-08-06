@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CatModal from "../../UIElements/CatModal";
-
+import "./showProducts.css";
 const ProductShow = (props) => {
     const [showModal, setShowModal] = useState(false);
 
@@ -37,7 +37,7 @@ const ProductShow = (props) => {
         </div>
         <div
           style={{ textAlign: "left" }}
-          className="align-middle categoryName"
+          className="align-middle categoryBox"
         >
           {props.category}
         </div>

@@ -47,7 +47,8 @@ const SendMessageModal = (props) => {
   useEffect(() => {
     if (props.setMedia === "email") {
       setIsMail(true);
-    } else {
+    }
+    if (props.setMedia === "whatsapp") {
       setIsMail(false);
     }
     return () => {
@@ -96,13 +97,18 @@ const SendMessageModal = (props) => {
         show={props.show}
         footer={
           <div className="d-flex justify-content-around mr-auto ml-auto p-3">
-            <Button onClick={props.onClear}>
+            <Button
+              onClick={() => {
+                setMailReturn(false);
+                props.onClear();
+              }}
+            >
               {" "}
               <FontAwesomeIcon icon={faUndoAlt} /> Atrás
             </Button>
             {!isMail && (
               <Button
-                onClick={() => setMailReturn("true")}
+                onClick={() => setMailReturn("false")}
                 disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
@@ -141,7 +147,7 @@ const SendMessageModal = (props) => {
         </div>
 
         <div className="formBox col-12 col-lg-8 mr-auto ml-auto">
-          {mailReturn ? (
+          {!!mailReturn ? (
             <div className="col-12 mr-auto ml-auto dancingmessage">
               Mensaje enviado{" "}
               <span role="img" aria-label="rocket" style={{ color: "#06d6a2" }}>

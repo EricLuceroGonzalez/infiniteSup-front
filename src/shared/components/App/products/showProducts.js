@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../../hooks/http-hook";
 import LoadingSpinner from "../../UIElements/LoadingSpinner";
 
-import "./showProducts.css";
 import ProductShow from "./ProductShow";
-import ErrorModal from "../../UIElements/ErrorModal";
+import "./showProducts.css";
+import "../TextStyle.css";
 
 const ShowProducts = () => {
   const [categories, setCategories] = useState([]);

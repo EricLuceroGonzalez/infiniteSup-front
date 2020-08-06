@@ -14,6 +14,7 @@ import Button from "../UIElements/Button";
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import SendMessageModal from "../UIElements/SendMessageModal";
 import logo_small from "../../../media/logo_sm_cut.png";
+
 const ContactUs = () => {
   const [showModal, setShowModal] = useState(false);
   const [setMedia, setSetMedia] = useState("");
@@ -43,6 +44,9 @@ const ContactUs = () => {
         <div className="col-12 col-sm-8 pb-4">
           <h5>Contacto</h5>
           <ContactCard
+          onClick={() => {
+            window.location.href = "tel:(+507) 6291-7954";
+          }}
             color="theAqua"
             iconName={faPhone}
             name="(+507) 6291-7954"
