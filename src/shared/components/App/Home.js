@@ -43,7 +43,7 @@ const Landing = (props) => {
   const [timeOutB] = useState();
 
   useEffect(() => {
-    document.title = "Infinite Supplies | Bienvenido";   
+    document.title = "Infinite Supplies | Bienvenido!";   
     let setTimeOut;
     let setTimeOutB;
     const setBackgroundImg = () => {
