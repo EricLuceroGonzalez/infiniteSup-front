@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
+import ErrorModal from "../UIElements/ErrorModal";
 const ShowBlog = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [blogEntries, setBlogEntries] = useState([]);
@@ -40,7 +41,7 @@ const ShowBlog = (props) => {
         className="row d-flex col-12 col-md-3 mr-auto ml-auto entryBox"
         to={`/blog/${item._id}`}
         >
-        {isLoading && <LoadingSpinner asOverlay />}
+
           <div className="col-12 d-flex align-items-end">
             <img className="entryImg" src={item.image} alt="blog entry"></img>
           </div>
@@ -60,9 +61,13 @@ const ShowBlog = (props) => {
       );
     });
   };
-
+  const errorHandler = () => {
+    clearError();
+  };
   return (
     <React.Fragment>
+    <ErrorModal error={error} onClear={errorHandler} />
+    {isLoading && <LoadingSpinner asOverlay />}
       <div className="row d-flex col-12 mr-auto ml-auto justify-content-around mt-2">
         {showBlogCars()}
       </div>

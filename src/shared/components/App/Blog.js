@@ -2,16 +2,14 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/es";
 
-import blogImage1 from "../../../media/donaciones.jpeg";
-import blogImage2 from "../../../media/bitmap2.png";
-import blogImage3 from "../../../media/navlogo.png";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./TextStyle.css";
 import "./Blog.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
+import ErrorModal from "../UIElements/ErrorModal";
 
 const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -28,13 +26,12 @@ const useWindowSize = () => {
 };
 
 const Blog = () => {
-  const [width, height] = useWindowSize();
-  const history = useHistory();
+  const [width] = useWindowSize();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [blogEntries, setBlogEntries] = useState([]);
 
   useEffect(() => {
-    document.title = 'Infinite Supplies | Blog'
+    document.title = "Infinite Supplies | Blog";
     const fecthBlog = async () => {
       try {
         const responseData = await sendRequest(
@@ -58,7 +55,10 @@ const Blog = () => {
           <div className="row d-flex col-10 col-md-6 mr-auto ml-auto bordeC entryBox">
             <p className="entryTitle col-12">{item.title}</p>
             <div className="col-10 col-sm-4">
-              <p className="entryDate"> {moment(item.creationDate).format("LL")}</p>
+              <p className="entryDate">
+                {" "}
+                {moment(item.creationDate).format("LL")}
+              </p>
               <p className="para"> {item.resumen}</p>
             </div>
             {width > "500" ? (
@@ -83,8 +83,12 @@ const Blog = () => {
       );
     });
   };
+  const errorHandler = () => {
+    clearError();
+  };
   return (
     <div className="mt-3">
+      <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>

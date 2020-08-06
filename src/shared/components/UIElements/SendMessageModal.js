@@ -17,17 +17,14 @@ import {
   VALIDATOR_EMAIL,
 } from "../../utils/validators";
 import Input from "./Input";
-import { Link, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "./LoadingSpinner";
 import "./sendMessageModal.css";
 
 const SendMessageModal = (props) => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const [description, setDescrition] = useState(props.description);
+  const { isLoading, sendRequest } = useHttpClient();
   const [isMail, setIsMail] = useState(false);
   const [mailReturn, setMailReturn] = useState(false);
-  const history = useHistory();
 
   const [formState, inputHandler] = useForm(
     {
@@ -54,23 +51,17 @@ const SendMessageModal = (props) => {
       setIsMail(false);
     }
     return () => {
-      console.log("getting out!");
-
       setIsMail(false);
     };
   }, [props, isMail, formState]);
 
   const SendMessage = async (event) => {
     const formData = new FormData();
-    console.log(`ismail: ${isMail}`);
-    console.log(formState.inputs);
 
     if (isMail) {
       formData.append("name", formState.inputs.name.value);
       formData.append("email", formState.inputs.email.value);
       formData.append("message", formState.inputs.message.value);
-      await console.log(formData);
-
       // event.preventDefault();
       try {
         const sendMail = await sendRequest(
@@ -86,7 +77,7 @@ const SendMessageModal = (props) => {
         setMailReturn(sendMail.emailSent);
         // setMailReturn()
       } catch (err) {
-        console.log(`Error que xopa ahi loco, ${err}`);
+        console.log(`Error: ${err}`);
       }
     }
   };
@@ -115,7 +106,7 @@ const SendMessageModal = (props) => {
                 disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
-                    ? `https://wa.me/+50769825076?text=%F0%9F%94%B4%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
+                    ? `https://wa.me/+50769825076?text=%F0%9F%94%B5%0A%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
                     : ""
                 }
               >

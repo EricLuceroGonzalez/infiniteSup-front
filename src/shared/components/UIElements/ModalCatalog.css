@@ -32,9 +32,37 @@
   font-size: 1.15em;
 }
 
+.product-image-box{
+  height: 70%;
+}
 .productShowImg {
   min-width: 70%;
-  max-height: 100%;
-  margin: 2px auto;
+  min-height: 70%;
   /* border: 2px dashed red; */
+}
+.iVibrate {
+  animation: shaky 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both 2;
+}
+@keyframes shaky {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(1px, 0, 0);
+    transform: rotate(-5deg);
+  }
+
+  50%,
+  70% {
+    transform: translate3d(-1px, 0, 0);
+    transform: rotate(5deg);
+  }
+
+  40%,
+  60% {
+    /* transform: translate3d(1px, 0, 0); */
+  }
 }

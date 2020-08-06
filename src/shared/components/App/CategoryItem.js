@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import "./Categories.css";
 import CatModal from "../UIElements/CatModal";
@@ -21,14 +21,6 @@ const CategoryItem = (props) => {
         closeModal={() => openCloseModal()}
         title={props.category}
         products={props.products}
-        // prodName={props.name}
-        // items={props.items}
-        // logo={props.imgSource}
-        // description={props.description}
-        // pros={props.pros}
-        // sizes={props.sizes}
-        // fragance={props.frag}
-        // message={props.category}
         onClear={errorHandler}
       />
 

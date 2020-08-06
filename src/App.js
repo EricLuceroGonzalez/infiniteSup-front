@@ -19,6 +19,7 @@ import "./fonts.css";
 import { useAuth } from "./shared/hooks/auth-hook";
 import Auth from "./user/auth";
 import { AuthContext } from "./shared/context/auth-contex";
+import Dashboard from "./user/Dashboard";
 
 function App() {
   const { token, login, logout, userId } = useAuth();
@@ -31,8 +32,16 @@ function App() {
         <Route path="/productos" component={ShowProducts} />
         <Route path="/nosotros" component={AboutUs} />
         <Route path="/contacto" component={ContactUs} />
-        <Route exact path="/" component={Landing} />
-        <Redirect to="/"></Redirect>
+        <Route path='/' exact>
+        <Landing/>
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+          <Route path="/dashboard">
+          <Auth></Auth>
+        </Route>
+        <Redirect to="/dashboard"></Redirect>
       </Switch>
     );
   } else {
@@ -61,15 +70,15 @@ function App() {
         logout: logout,
       }}
     >
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="App">
           <Navigation />
           <main className="main">{routes}</main>
           <footer>
             <Footer />
           </footer>
-        </Router>
-      </div>
+        </div>
+      </Router>
     </AuthContext.Provider>
   );
 }

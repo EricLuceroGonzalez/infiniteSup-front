@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
-import BackgroundSlideshow from "react-background-slideshow";
 import bg1m from "../../../media/bg/1-mobile.png";
 import bg2m from "../../../media/bg/2-mobile.png";
 import bg3m from "../../../media/bg/3-mobile.png";
@@ -32,18 +31,19 @@ const useWindowSize = () => {
 };
 
 const Landing = (props) => {
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   // let imageUrl = width >= 768 ? bg1b : bg1m;
-  const [bgImages, setBgImages] = useState([bg1b, bg2b, bg3b, bg4b]);
-  const [bgMobile, setBgMobile] = useState([bg1m, bg2m, bg3m, bg4m]);
+  const [bgImages] = useState([bg1b, bg2b, bg3b, bg4b]);
+  const [bgMobile] = useState([bg1m, bg2m, bg3m, bg4m]);
   const [bgImage, setBgImage] = useState("");
   const [bgTimer, setBgTimer] = useState(0);
   const [imageIn, setImageIn] = useState(false);
-  const [isMounted, setIsMounted] = useState(true);
-  const [timeOut, setTimeOut] = useState();
-  const [timeOutB, setTimeOutB] = useState();
+  const [isMounted] = useState(true);
+  const [timeOut] = useState();
+  const [timeOutB] = useState();
+
   useEffect(() => {
-    document.title = "Infinite Supplies | Bienvenido";
+    document.title = "Infinite Supplies | Bienvenido";   
     let setTimeOut;
     let setTimeOutB;
     const setBackgroundImg = () => {

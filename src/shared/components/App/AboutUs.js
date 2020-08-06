@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 
-import logo from "../../../media/logo_full.png";
-
 import "./TextStyle.css";
 
 const AboutUs = () => {
-  document.title = 'Infinite Supplies | Nosotros'
+  document.title = "Infinite Supplies | Nosotros";
   useEffect(() => {
     if (!window.google) {
       console.log("------------------  no window.google==========");

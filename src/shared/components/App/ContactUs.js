@@ -26,7 +26,6 @@ const ContactUs = () => {
   };
 
   const openCloseModal = (a) => {
-    console.log(a);
     setSetMedia(a);
     setShowModal(!showModal);
   };

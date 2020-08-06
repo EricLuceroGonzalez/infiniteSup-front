@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/es";
-
-import { useHistory } from "react-router-dom";
 import "./TextStyle.css";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,12 +9,11 @@ import Button from "../UIElements/Button";
 import logo_small from "../../../media/logo_sm_cut.png";
 import { useHttpClient } from "../../hooks/http-hook";
 import LoadingSpinner from "../UIElements/LoadingSpinner";
+import ErrorModal from "../UIElements/ErrorModal";
 
 const BlogEntry = (props) => {
-  const [endPoint, setEndpoint] = useState();
   const [blogEntry, setBlogEntry] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const history = useHistory();
 
   useEffect(() => {
     const fecthBlog = async () => {
@@ -52,8 +49,13 @@ const BlogEntry = (props) => {
       </div>
     );
   };
+  const errorHandler = () => {
+    clearError();
+  };
+  
   return (
     <div className="mt-3">
+    <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && <LoadingSpinner asOverlay />}
       <h1 className="itemTitle">Blog</h1>
       <div>{getEntry()}</div>

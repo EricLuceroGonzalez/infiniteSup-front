@@ -14,6 +14,7 @@ import {
   VALIDATOR_REQUIRE,
 } from "../shared/utils/validators";
 import "./Auth.css";
+import { useHistory } from "react-router-dom";
 
 const Auth = () => {
   const auth = useContext(AuthContext);
@@ -21,6 +22,7 @@ const Auth = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
   // is Loading is managed by hook
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const history=useHistory()
 
   // Initialize state with form-hook
   const [formState, inputHandler, setFormData] = useForm(
@@ -64,7 +66,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_URL + "/user/login",
+          process.env.REACT_APP_BACKEND_URL + "/users/login",
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -79,19 +81,22 @@ const Auth = () => {
       }
     } else {
       // HTTP Request: fetch()
+      console.log(`${process.env.REACT_APP_BACKEND_URL}/users/signup`);
+
       try {
-        // Instead of JSON will use the FormData():
-        const formData = new FormData();
-        formData.append("email", formState.inputs.email.value);
-        formData.append("name", formState.inputs.name.value);
-        formData.append("password", formState.inputs.password.value);
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/user/signup`,
+          process.env.REACT_APP_BACKEND_URL + "/users/signup",
           "POST",
-          formData
+          JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+          { "Content-Type": "application/json" }
         );
         // Change the state of Context
         auth.login(responseData.userId, responseData.token);
+        history.push("/dashboard")
       } catch (err) {
         console.log(`Signup error: ${err}`);
       }

@@ -1,11 +1,9 @@
 import React from "react";
-import ShowWindowDimensions from "../../hooks/ShowWindowDimensions-hook";
 
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (

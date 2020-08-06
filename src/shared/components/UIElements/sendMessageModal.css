@@ -1,6 +1,9 @@
 .instructMessage{
   font-size: 0.75rem;
 }
+.formBox{
+  margin: 2rem 0;
+}
 
 .dancingmessage {
   vertical-align: middle;
