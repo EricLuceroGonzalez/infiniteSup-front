@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CatModal from "../../UIElements/CatModal";
+
 const ProductShow = (props) => {
     const [showModal, setShowModal] = useState(false);
 
