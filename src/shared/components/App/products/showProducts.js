@@ -18,7 +18,7 @@ const ShowProducts = () => {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_URL}/products/getCategories`
         );
-        setCategories(responseData.categories);
+        setCategories(responseData.categories);       
       } catch (err) {}
     };
 
@@ -39,9 +39,6 @@ const ShowProducts = () => {
         />
       );
     });
-  };
-  const errorHandler = () => {
-    clearError();
   };
   return (
     <React.Fragment>

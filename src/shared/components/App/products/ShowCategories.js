@@ -5,9 +5,8 @@ import "../Categories.css";
 import CategoryItem from "../CategoryItem";
 import { useHttpClient } from "../../../hooks/http-hook";
 import LoadingSpinner from "../../UIElements/LoadingSpinner";
-import ErrorModal from "../../UIElements/ErrorModal";
 
-const ShowCategories = (props) => {
+const ShowCategories = () => {
   const [categories, setCategories] = useState([]);
   const [isMounted] = useState(true);
   const { isLoading, sendRequest } = useHttpClient();
