@@ -12,7 +12,7 @@
     margin: 1px;
     border-radius: 50%;
     border: 2px solid #7070eb;
-    border-color: #06d6a2 transparent red transparent;
+    border-color: #06d6a2 transparent #7070eb transparent;
     animation: loading-ring 1.2s linear infinite;
   }
 

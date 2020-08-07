@@ -1,3 +1,48 @@
-.product-card {
-  border: 1px solid gray;
+.product-box {
+  margin: 2rem auto;
+  background-color: rgba(219, 219, 219, 0.623);
+  box-shadow: 2px 3px 3px gray;
+}
+
+.insideSection {
+  font-family: Montserrat-Bold;
+  text-transform: uppercase;
+  color: #7070eb;
+}
+
+.imgDashboard {
+  max-width: 60%;
+  max-height: 60%;
+}
+h4 {
+  margin: 40px auto 20px auto;
+  /* width: 20%; */
+  padding: 12px 7px;
+  border-bottom: 3px solid;
+  font-family: Montserrat-ExtraBold;
+  background-color: #0411a3;
+  color: white;
+}
+
+.align-list {
+  text-align: left;
+}
+
+
+.edit-button{
+  background-color:#06d6a2;
+  color: #0411a3;
+  font-family: Montserrat-ExtraBold;
+  min-width: 30%;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.edit-button:hover{
+  cursor: pointer;
+  background-color: #0411a3;
+  color: #06d6a2;
 }

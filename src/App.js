@@ -36,7 +36,7 @@ function App() {
         <Route path="/nosotros" component={AboutUs} />
         <Route path="/contacto" component={ContactUs} />
         <Route path="/" exact>
-          <Landing />
+          <Dashboard />
         </Route>
         <Route path="/dashboard">
           <Dashboard />
