@@ -103,19 +103,7 @@ const EditProduct = (props) => {
               {" "}
               <FontAwesomeIcon icon={faUndoAlt} /> Atrás
             </Button>
-            {!isMail && (
-              <Button
-                onClick={() => setMailReturn("false")}
-                disabled={!formState.isValid}
-                href={
-                  formState.inputs.message.isValid
-                    ? `https://wa.me/+50769825076?text=%F0%9F%94%B5%0A%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
-                    : ""
-                }
-              >
-                Enviar <FontAwesomeIcon icon={faPaperPlane} />
-              </Button>
-            )}
+           <h3>{props.prodName.name}</h3>
             {isMail && (
               <Button
                 disabled={!formState.isValid || mailReturn}
@@ -136,13 +124,7 @@ const EditProduct = (props) => {
               icon={isMail ? faEnvelope : faWhatsapp}
             />
           </div>
-          <div className="col-10 instructMessage">
-            {" "}
-            Envía un mensaje a nuestro{" "}
-            {props.prodName
-            }
-            {isMail ? "correo electrónico:" : "WhatsApp:"}
-          </div>
+
         </div>
 
         <div className="formBox col-12 col-lg-8 mr-auto ml-auto">
