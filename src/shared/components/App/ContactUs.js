@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  faPhone,
+  faPhoneAlt,
   faEnvelope,
   faPencilAlt,
   faMapMarkerAlt,
@@ -53,15 +53,21 @@ const ContactUs = () => {
             window.location.href = "tel:(+507) 6291-7954";
           }}
             color="theAqua"
-            iconName={faPhone}
+            iconName={faPhoneAlt}
             name="(+507) 6291-7954"
+            moveIt={'phoneVibrate'}
           />
           <ContactCard
-            color="theLightBlue-b"
+            color="theLightBlue"
             iconName={faEnvelope}
             href="mailto: ericlucero501@gmail.com"
             name="info@infinite-supplies.com"
           />
+          <ContactCard
+          color="theLightBlue-b"
+          iconName={faPhoneAlt}
+          name="(+507) 382- 8846/47"
+        />
           <ContactCard
             color="thePurple"
             iconName={faInstagram}

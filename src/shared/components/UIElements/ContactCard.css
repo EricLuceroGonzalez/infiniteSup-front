@@ -11,3 +11,29 @@
   text-decoration: none;
   color: #070f70;
 }
+.phoneVibrate {
+  animation: shake 6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+}
+
+@keyframes shake {
+  5%,
+  15%,
+  75%,
+  85% {
+    /* transform: translate3d(-1px, 0, 0); */
+    transform: rotate(-6deg);
+  }
+
+  10%,
+  20%,
+  80%,
+  90% {
+    /* transform: translate3d(-1px, 0, 0); */
+    transform: rotate(6deg);
+  }
+
+  40%,
+  60% {
+    /* transform: translate3d(1px, 0, 0); */
+  }
+}

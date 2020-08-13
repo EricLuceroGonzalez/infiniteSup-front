@@ -115,7 +115,7 @@ const ModalCatalog = (props) => {
           <div className='iVibrate mb-2'>
             <Button
               inverse
-              href={`https://wa.me/+50769825076?text=%F0%9F%94%B5%20INFINITE-SUPPLIES.COM%0AHola%2C%20me%20interesa%20este%20producto%3A%20%0A%0A${productItem[current].name}%20%0A%0A`}
+              href={`https://wa.me/+50762917954?text=%F0%9F%94%B5%20INFINITE-SUPPLIES.COM%0AHola%2C%20me%20interesa%20este%20producto%3A%20%0A%0A${productItem[current].name}%20%0A%0A`}
             >
               <FontAwesomeIcon style={{fontSize:'1.25rem'}} icon={faWhatsapp} />
             </Button>

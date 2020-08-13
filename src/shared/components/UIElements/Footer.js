@@ -17,7 +17,7 @@ const Footer = () => {
         >
           <FontAwesomeIcon
             icon={faInstagram}
-            style={{ marginRight: "8px", color: "#06d6a2" }}
+            style={{ marginRight: "3px", color: "#06d6a2" }}
           />
           infinitesupplies<span className='theLightBlue-b'>sa</span>
         </a>

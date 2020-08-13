@@ -112,7 +112,7 @@ const SendMessageModal = (props) => {
                 disabled={!formState.isValid}
                 href={
                   formState.inputs.message.isValid
-                    ? `https://wa.me/+50769825076?text=%F0%9F%94%B5%0A%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
+                    ? `https://wa.me/+50762917954?text=%F0%9F%94%B5%0A%20INFINITE%20SUPPLIES%0A%0AMensaje%20de%3A%20${formState.inputs.name.value}%20%0A%0A${formState.inputs.message.value}`
                     : ""
                 }
               >
